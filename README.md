@@ -5,10 +5,10 @@
 1. Clone this repo and `cd` into it.
  ```bash
 # clone dat from GitHub
-git clone --depth=1 https://github.com/dat-labs/dat-core.git
+git clone --depth=1 https://github.com/dat-labs/dat-main.git
 
-# switch into dat directory
-cd dat-core
+# switch into dat-main directory
+cd dat-main
 ```
 2. Run the executable which will clone additional repos and setup docker containers.
 ```bash
