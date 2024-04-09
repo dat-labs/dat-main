@@ -1,6 +1,6 @@
 # dat-main
 
-## Running locally
+## Running locally 🚀
 0. Ensure that you have `docker` installed.
 1. Clone this repo and `cd` into it.
  ```bash
@@ -15,8 +15,9 @@ cd dat-main
 # start dat
 ./run-dat-platform.sh
 ```
+3. Visit http://localhost:8000 on your browser once all connectors have come up. (TODO: how will people know this?)
 
-## Contributing
+## Contributing 🐱‍💻
 ### Verified Connectors
 1. Fork the [verified-*](https://github.com/dat-labs?q=verified-&type=all&language=&sort=) repo you want to contribute.
 2. `cd verified-*`
