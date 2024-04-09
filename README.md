@@ -25,3 +25,4 @@ cd dat-core
 6. `curl -O  https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli.py`
 7. `python verified_stub_generator_cli.py`
 
+Additional resources can be found at [CONTRIBUTING.md](https://github.com/path/to/CONTRIBUTING.md).
