@@ -1,0 +1,81 @@
+services:
+  message-queue:
+    image: rabbitmq:3.10.5
+    environment:
+      RABBITMQ_DEFAULT_USER: mq_user
+      RABBITMQ_DEFAULT_PASS: mq_pass
+    volumes:
+      - ./rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+    networks:
+      - dat-network
+    healthcheck:
+      test: "exit 0"
+  api:
+    build:
+      context: "./dat-api"
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    volumes:
+      - ./dat-api:/app
+    depends_on:
+      db-backend:
+        condition: service_healthy
+    ports:
+      - 8000:8000
+    networks:
+     - dat-network
+  orchestrator:
+    build:
+      context: "./dat-orchestrator"
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    volumes:
+      - ./dat-orchestrator:/repo
+    depends_on:
+      message-queue:
+        condition: service_healthy
+    networks:
+     - dat-network
+  telemetry:
+    build:
+      context: "./dat-telemetry"
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    volumes:
+      - ./dat-telemetry:/repo
+    depends_on:
+      message-queue:
+        condition: service_healthy
+    networks:
+     - dat-network
+  db-backend:
+    image: postgres:latest
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+      - ./db-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dat_backend
+    networks:
+     - dat-network
+    healthcheck:
+      test: "exit 0"
+  ui:
+    build:
+      context: "./dat-ui"
+    volumes:
+      - ./dat-ui/src:/app/src
+    ports:
+      - 3000:3000
+    networks:
+     - dat-network
+    healthcheck:
+      test: "exit 0"
+networks:
+  dat-network:
+    driver: bridge
