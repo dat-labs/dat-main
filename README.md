@@ -17,7 +17,7 @@ cd dat-core
 ```
 
 ## Contributing
-1. Fork the verified-* repo you want to contribute.
+1. Fork the [verified-*](https://github.com/dat-labs?q=verified-&type=all&language=&sort=) repo you want to contribute.
 2. `cd verified-*`
 3. Create a virtualenv (minimum Python3.10) and activate it.
 4. `pip install poetry`
