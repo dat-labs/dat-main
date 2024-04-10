@@ -15,8 +15,6 @@ services:
   api:
     build:
       context: "./dat-api"
-      args:
-        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
     volumes:
       - ./dat-api:/app
     depends_on:
@@ -29,8 +27,6 @@ services:
   orchestrator:
     build:
       context: "./dat-orchestrator"
-      args:
-        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
     volumes:
       - ./dat-orchestrator:/repo
     depends_on:
@@ -41,8 +37,6 @@ services:
   telemetry:
     build:
       context: "./dat-telemetry"
-      args:
-        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
     volumes:
       - ./dat-telemetry:/repo
     depends_on:
@@ -65,17 +59,17 @@ services:
      - dat-network
     healthcheck:
       test: "exit 0"
-  ui:
-    build:
-      context: "./dat-ui"
-    volumes:
-      - ./dat-ui/src:/app/src
-    ports:
-      - 3000:3000
-    networks:
-     - dat-network
-    healthcheck:
-      test: "exit 0"
+  # ui:
+  #   build:
+  #     context: "./dat-ui"
+  #   volumes:
+  #     - ./dat-ui/src:/app/src
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #    - dat-network
+  #   healthcheck:
+  #     test: "exit 0"
 networks:
   dat-network:
     driver: bridge
