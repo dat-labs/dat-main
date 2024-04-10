@@ -2,18 +2,10 @@
 
 ## Running locally 🚀
 0. Ensure that you have `docker` installed.
-1. Clone this repo and `cd` into it.
+1. Download and run
  ```bash
 # clone dat from GitHub
-git clone --depth=1 https://github.com/dat-labs/dat-main.git
-
-# switch into dat-main directory
-cd dat-main
-```
-2. Run the executable which will clone additional repos and setup docker containers.
-```bash
-# start dat
-./run-dat-platform.sh
+curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash
 ```
 3. Visit http://localhost:8000 on your browser once all connectors have come up. (TODO: how will people know this?)
 
