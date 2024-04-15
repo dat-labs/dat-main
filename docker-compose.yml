@@ -59,17 +59,17 @@ services:
      - dat-network
     healthcheck:
       test: "exit 0"
-  # ui:
-  #   build:
-  #     context: "./dat-ui"
-  #   volumes:
-  #     - ./dat-ui/src:/app/src
-  #   ports:
-  #     - 3000:3000
-  #   networks:
-  #    - dat-network
-  #   healthcheck:
-  #     test: "exit 0"
+  ui:
+    build:
+      context: "./dat-ui"
+    volumes:
+      - ./dat-ui/src:/app/src
+    ports:
+      - 3000:3000
+    networks:
+     - dat-network
+    healthcheck:
+      test: "exit 0"
 networks:
   dat-network:
     driver: bridge
