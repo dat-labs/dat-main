@@ -9,7 +9,7 @@ repos=(
     "https://github.com/dat-labs/dat-api.git"
     "https://github.com/dat-labs/dat-orchestrator.git"
     "https://github.com/dat-labs/dat-telemetry.git"
-    # "https://github.com/dat-labs/dat-ui.git"
+    "https://github.com/dat-labs/dat-ui.git"
 )
 
 for repo in "${repos[@]}"; do
