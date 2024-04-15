@@ -44,6 +44,16 @@ services:
         condition: service_healthy
     networks:
      - dat-network
+  scheduler:
+    build:
+      context: "./dat-scheduler"
+    volumes:
+      - ./dat-scheduler:/repo
+    depends_on:
+      message-queue:
+        condition: service_healthy
+    networks:
+     - dat-network
   db-backend:
     image: postgres:latest
     volumes:

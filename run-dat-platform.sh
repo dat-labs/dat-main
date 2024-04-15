@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Default value for rebuild argument
+rebuild=false
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+        --rebuild)
+        rebuild=true
+        shift
+        ;;
+        *)
+        # Unknown option
+        shift
+        ;;
+    esac
+done
+
 # Step 1: Create a new directory
 mkdir dat
 cd dat || exit
@@ -9,6 +27,7 @@ repos=(
     "https://github.com/dat-labs/dat-api.git"
     "https://github.com/dat-labs/dat-orchestrator.git"
     "https://github.com/dat-labs/dat-telemetry.git"
+    "https://github.com/dat-labs/dat-scheduler.git"
     "https://github.com/dat-labs/dat-ui.git"
 )
 
@@ -26,8 +45,11 @@ curl -o db-scripts/001-create-db-seed.sql https://raw.githubusercontent.com/dat-
 curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.yml
 
 # Step 6: Run docker compose build
-docker compose build --no-cache
+if [ "$rebuild" = true ]; then
+    docker compose build --no-cache
+else
+    docker compose build
+fi
 
 # Step 7: Run docker compose up
 docker compose up
-
