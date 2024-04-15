@@ -4,19 +4,22 @@
 rebuild=false
 
 # Parse command line arguments
-while [[ $# -gt 0 ]]; do
-    key="$1"
-    case $key in
+for arg in "$@"; do
+    case $arg in
+        --rebuild=*)
+        rebuild="${arg#*=}"
+        shift
+        ;;
         --rebuild)
         rebuild=true
         shift
         ;;
         *)
         # Unknown option
-        shift
         ;;
     esac
 done
+# echo "Rebuild value: $rebuild"
 
 # Step 1: Create a new directory
 mkdir dat
@@ -46,8 +49,6 @@ curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.
 
 # Step 6: Run docker compose build
 if [ "$rebuild" = true ]; then
-    docker compose build --no-cache
-else
     docker compose build
 fi
 
