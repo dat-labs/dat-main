@@ -4,8 +4,7 @@
 0. Ensure that you have `docker` installed.
 1. Download and run
  ```bash
-# clone dat from GitHub
-curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash
+curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash -s -- --rebuild=false
 ```
 3. Visit http://localhost:8000 on your browser once all connectors have come up. (TODO: how will people know this?)
 
