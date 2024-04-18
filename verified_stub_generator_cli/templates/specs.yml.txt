@@ -1,0 +1,23 @@
+# ConnectorSpecification:
+description: Specification of a connector (source/embeddingsgenerator/destination)
+type: object
+required:
+  - connection_specification
+  - name
+  - module_name
+additionalProperties: true
+properties:
+  # General Properties (Common to all connectors)
+  documentation_url:
+    type: string
+    format: uri
+  name:
+    description: "The name of the specific connector to which this ConnectorSpecification belongs."
+    type: string
+  module_name:
+    description: "Name of the python module for this connector"
+    type: string
+  connection_specification:
+    description: ConnectorDefinition specific blob. Must be a valid JSON string.
+    type: object
+  # Connector Type Properties (Common to all connectors from same type)

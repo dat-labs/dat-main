@@ -15,7 +15,7 @@ curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platf
 3. Create a virtualenv (minimum Python3.10) and activate it.
 4. `pip install poetry`
 5. `poetry install`
-6. `curl -O  https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli.py`
-7. `python verified_stub_generator_cli.py`
+6. `curl -O  https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/main.py`
+7. `python main.py`
 
 Additional resources and further instructions right up to your PR can be found at [CONTRIBUTING.md](https://github.com/path/to/CONTRIBUTING.md).
