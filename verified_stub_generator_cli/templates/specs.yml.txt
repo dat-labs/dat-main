@@ -20,4 +20,7 @@ properties:
   connection_specification:
     description: ConnectorDefinition specific blob. Must be a valid JSON string.
     type: object
-  # Connector Type Properties (Common to all connectors from same type)
+    additionalProperties: true
+    properties:
+      property_0:
+        type: string

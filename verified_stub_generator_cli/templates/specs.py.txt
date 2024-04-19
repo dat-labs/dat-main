@@ -8,6 +8,12 @@ from typing import Any, Dict, Optional
 
 from pydantic import AnyUrl, BaseModel, Field
 
+class ConnectionSpecification(BaseModel):
+    class Config:
+        extra = 'allow'
+
+    property_0: Optional[str] = None
+
 
 class <actor_name>Specification(BaseModel):
     class Config:
@@ -21,7 +27,7 @@ class <actor_name>Specification(BaseModel):
     module_name: str = Field(
         ..., description='Name of the python module for this connector'
     )
-    connection_specification: Dict[str, Any] = Field(
+    connection_specification: ConnectionSpecification = Field(
         ...,
         description='ConnectorDefinition specific blob. Must be a valid JSON string.',
     )
