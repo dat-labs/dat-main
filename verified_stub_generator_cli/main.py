@@ -24,23 +24,24 @@ def validate_module_name(ctx, param, value):
     return value
 
 
-def create_module_dir(module_name):
+def create_module_dir(module_name, actor_type):
     # Create directory with module name
-    os.makedirs(os.path.join('verified_sources', module_name, 'tests'), exist_ok=True)
+    os.makedirs(os.path.join(f'verified_{actor_type}s', module_name, 'tests'), exist_ok=True)
 
 
-def create_files_from_template(module_name, actor_name, ):
+def create_files_from_template(module_name, actor_name, actor_type):
     # Define the file path
     paths_templates = [
         # yml
-        (os.path.join('verified_sources', module_name, 'specs.yml'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/specs.yml.txt'),
-        (os.path.join('verified_sources', module_name, 'catalog.yml'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.yml.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'specs.yml'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/specs.yml.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.yml'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.yml.txt'),
         # py
-        (os.path.join('verified_sources', module_name, 'source.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/source.py.txt'),
-        (os.path.join('verified_sources', module_name, 'catalog.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'specs.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/specs.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'source.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/source.py.txt'),
         # tests
-        (os.path.join('verified_sources', module_name, 'tests', 'conftest.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/conftest.py.txt'),
-        (os.path.join('verified_sources', module_name, 'tests', f'test_{module_name}.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/test_.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'tests', 'conftest.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/conftest.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'tests', f'test_{module_name}.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/test_.py.txt'),
     ]
     replacements = [
         ('<actor_name>', actor_name),
@@ -66,25 +67,22 @@ def create_files_from_template(module_name, actor_name, ):
 
         print(f'{file_path} written.')
             
-
+def camel_to_snake(camelcase_str):
+    return re.sub(r'(?<!^)(?=[A-Z])', '_', camelcase_str).lower()
 
 @click.command()
+@click.option('--actor-type', type=click.Choice(['source', 'generator', 'destination']),
+              prompt='Enter actor type', help='Type of the actor (source, generator, destination)')
 @click.option('--actor-name', prompt='Enter actor name', callback=validate_actor_name,
               help='Name of the actor (alphanumeric, first character cannot be a number, max 255 characters)')
 @click.option('--module-name', prompt='Enter module name', callback=validate_module_name,
+              default=lambda: camel_to_snake(click.get_current_context().params.get("actor_name", None)),
               help='Name of the module (alphanumeric, first character cannot be a number, max 255 characters)')
-# @click.option('--actor-type', type=click.Choice(['source', 'generator', 'destination']),
-#               prompt='Enter actor type',
-#               help='Type of the actor (source, generator, destination)')
-def main(
-        actor_name,
-        module_name,
-        #  actor_type,
-):
+def main(actor_type, actor_name, module_name, ):
     click.echo(f'Entered actor name: {actor_name}')
-    # click.echo(f'Entered actor type: {actor_type}')
-    create_module_dir(module_name)
-    create_files_from_template(module_name, actor_name,)
+    click.echo(f'Entered actor type: {actor_type}')
+    create_module_dir(module_name, actor_type)
+    create_files_from_template(module_name, actor_name, actor_type)
 
 
 if __name__ == '__main__':

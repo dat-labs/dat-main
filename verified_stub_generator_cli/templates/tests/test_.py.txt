@@ -1,7 +1,8 @@
 from verified_sources.<module_name>.source import <actor_name>
 from verified_sources.<module_name>.catalog import <actor_name>Catalog
+from verified_sources.<module_name>.specs import <actor_name>Specification
 from dat_core.pydantic_models import (
-    ConnectorSpecification, DatConnectionStatus, DatCatalog,
+    DatConnectionStatus, DatCatalog,
     DatDocumentStream,
 )
 from conftest import *
@@ -9,7 +10,7 @@ from conftest import *
 
 def test_check(valid_connection_object):
     check_connection_tpl = <actor_name>().check(
-        config=ConnectorSpecification(
+        config=<actor_name>Specification(
             name='<actor_name>',
             connection_specification=valid_connection_object,
             module_name='<module_name>'
@@ -21,7 +22,7 @@ def test_check(valid_connection_object):
 
 def test_discover(valid_connection_object):
     _d = <actor_name>().discover(
-        config=ConnectorSpecification(
+        config=<actor_name>Specification(
             name='<actor_name>',
             connection_specification=valid_connection_object,
             module_name='<module_name>'
@@ -31,7 +32,7 @@ def test_discover(valid_connection_object):
 
 
 def test_read(valid_connection_object, valid_catalog_object):
-    config = ConnectorSpecification(
+    config = <actor_name>Specification(
         name='<actor_name>',
         connection_specification=valid_connection_object,
         module_name='<module_name>'
