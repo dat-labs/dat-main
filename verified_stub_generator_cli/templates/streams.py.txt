@@ -2,7 +2,7 @@ from typing import Any, Generator
 from dat_core.connectors.sources.stream import Stream
 from dat_core.pydantic_models import DatCatalog, DatDocumentStream, DatMessage, StreamState
 from dat_core.doc_splitters.factory import doc_splitter_factory, DocLoaderType, TextSplitterType
-from verified_sources.website_crawler.specs import <actor_name>Specification
+from verified_sources.<module_name>.specs import <actor_name>Specification
 
 class <module_name>Stream0(Stream):
     """
