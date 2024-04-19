@@ -16,7 +16,7 @@ class <module_name>Stream0(Stream):
         read_records: Reads records from the configured stream and yields DatMessage objects.
     """
 
-    _name = 'url_crawler'
+    _name = '<module_name>_stream_0'
 
     def __init__(self, config: <actor_name>Specification) -> None:
         """
