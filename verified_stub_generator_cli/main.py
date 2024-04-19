@@ -39,6 +39,7 @@ def create_files_from_template(module_name, actor_name, actor_type):
         (os.path.join(f'verified_{actor_type}s', module_name, 'specs.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/specs.py.txt'),
         (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.py.txt'),
         (os.path.join(f'verified_{actor_type}s', module_name, 'source.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/source.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'streams.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/streams.py.txt'),
         # tests
         (os.path.join(f'verified_{actor_type}s', module_name, 'tests', 'conftest.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/conftest.py.txt'),
         (os.path.join(f'verified_{actor_type}s', module_name, 'tests', f'test_{module_name}.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/test_.py.txt'),
