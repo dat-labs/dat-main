@@ -2,9 +2,8 @@ import os
 from typing import (Any, Optional, Tuple, Mapping, List)
 from dat_core.connectors.sources.base import SourceBase
 from dat_core.connectors.sources.stream import Stream
-from dat_core.pydantic_models import (
-    ConnectorSpecification, DatDocumentStream
-)
+from dat_core.pydantic_models import ConnectorSpecification
+from verified_sources.<module_name>.streams import <module_name>Stream0
 
 
 class <actor_name>(SourceBase):
@@ -17,5 +16,5 @@ class <actor_name>(SourceBase):
 
     def streams(self, config: Mapping[str, Any], json_schemas: Mapping[str, Mapping[str, Any]]=None) -> List[Stream]:
         return [
-            DatDocumentStream(name='<module_name>_stream_0'),
+            <module_name>Stream0(config),
         ]
