@@ -4,7 +4,7 @@ from dat_core.pydantic_models import DatCatalog, DatDocumentStream, DatMessage, 
 from dat_core.doc_splitters.factory import doc_splitter_factory, DocLoaderType, TextSplitterType
 from verified_sources.<module_name>.specs import <actor_name>Specification
 
-class <module_name>Stream0(Stream):
+class <actor_name>Stream0(Stream):
     """
     <module_name>Stream0 class for crawling and processing URLs.
 
