@@ -1,0 +1,108 @@
+services:
+  message-queue:
+    image: rabbitmq:3.10.5
+    environment:
+      RABBITMQ_DEFAULT_USER: mq_user
+      RABBITMQ_DEFAULT_PASS: mq_pass
+    volumes:
+      - ./rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 5672:5672
+    networks:
+      - dat-network
+    healthcheck:
+      test: "exit 0"
+  api:
+    build:
+      context: "./dat-api"
+    volumes:
+      - ./dat-api:/app
+      - ./dat-core:/usr/local/src/dat-core
+      - ./verified-sources:/usr/local/src/verified-sources
+      - ./verified-generators:/usr/local/src/verified-generators
+      - ./verified-destinations:/usr/local/src/verified-destinations
+    depends_on:
+      db-backend:
+        condition: service_healthy
+    ports:
+      - 8000:8000
+    networks:
+     - dat-network
+  orchestrator:
+    build:
+      context: "./dat-orchestrator"
+    volumes:
+      - ./dat-orchestrator:/repo
+      - ./dat-core:/usr/local/src/dat-core
+      - ./verified-sources:/usr/local/src/verified-sources
+      - ./verified-generators:/usr/local/src/verified-generators
+      - ./verified-destinations:/usr/local/src/verified-destinations
+    depends_on:
+      message-queue:
+        condition: service_healthy
+    networks:
+     - dat-network
+  telemetry:
+    build:
+      context: "./dat-telemetry"
+    volumes:
+      - ./dat-telemetry:/repo
+    depends_on:
+      message-queue:
+        condition: service_healthy
+    networks:
+     - dat-network
+  scheduler:
+    build:
+      context: "./dat-scheduler"
+      # args:
+      #   - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    volumes:
+      - ./dat-scheduler:/repo
+    depends_on:
+      message-queue:
+        condition: service_healthy
+    networks:
+     - dat-network
+  db-backend:
+    image: postgres:latest
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+      - ./db-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dat_backend
+    networks:
+     - dat-network
+    healthcheck:
+      test: "exit 0"
+  ui:
+    build:
+      context: "./dat-ui"
+    volumes:
+      - ./dat-ui/src:/app/src
+    ports:
+      - 3000:3000
+    networks:
+     - dat-network
+    healthcheck:
+      test: "exit 0"
+  object-storage:
+    image: minio/minio:latest
+    volumes:
+      - ./object-storage-data:/data
+    environment:
+      MINIO_ROOT_USER: "los_user"
+      MINIO_ROOT_PASSWORD: "los_pass"
+    ports:
+      - 9000:9000
+      - 9001:9001
+    command: server --address ":9000" --console-address ":9001" /data
+    networks:
+     - dat-network
+networks:
+  dat-network:
+    driver: bridge
