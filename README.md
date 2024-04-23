@@ -10,7 +10,12 @@ curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platf
 
 ## Contributing 🐱‍💻
 ### Verified Connectors
-1. Fork the [verified-*](https://github.com/dat-labs?q=verified-&type=all&language=&sort=) repo you want to contribute.
+0. Ensure that you have `docker` installed.
+1. Download and run
+ ```bash
+curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash -s -- --rebuild=false
+```
+<!-- 1. Fork the [verified-*](https://github.com/dat-labs?q=verified-&type=all&language=&sort=) repo you want to contribute. -->
 2. `cd verified-*`
 3. Create a virtualenv (minimum Python3.10) and activate it.
 4. `pip install poetry`
