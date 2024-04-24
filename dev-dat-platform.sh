@@ -40,7 +40,7 @@ repos=(
 )
 
 for repo in "${repos[@]}"; do
-    git clone "$repo"
+    git clone --depth=1 "$repo"
 done
 
 # Step 3: Create a directory named db-scripts
