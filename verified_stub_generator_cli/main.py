@@ -3,6 +3,9 @@ import os
 import click
 import requests
 
+actor_types = ['source', 'generator', 'destination']
+base_template_url = 'https://raw.githubusercontent.com/dat-labs/dat-main/main'
+# base_template_url = 'http://localhost:8000'    # local testing
 
 def validate_actor_name(ctx, param, value):
     if not re.match(r'^[a-zA-Z][a-zA-Z0-9]*$', value):
@@ -33,21 +36,34 @@ def create_files_from_template(module_name, actor_name, actor_type):
     # Define the file path
     paths_templates = [
         # yml
-        (os.path.join(f'verified_{actor_type}s', module_name, 'specs.yml'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/specs.yml.txt'),
-        (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.yml'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.yml.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'specs.yml'), f'{base_template_url}/verified_stub_generator_cli/templates/specs.yml.txt'),
+        
         # py
-        (os.path.join(f'verified_{actor_type}s', module_name, 'specs.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/specs.py.txt'),
-        (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/catalog.py.txt'),
-        (os.path.join(f'verified_{actor_type}s', module_name, 'source.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/source.py.txt'),
-        (os.path.join(f'verified_{actor_type}s', module_name, 'streams.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/streams.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'specs.py'), f'{base_template_url}/verified_stub_generator_cli/templates/specs.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, f'{actor_type}.py'), f'{base_template_url}/verified_stub_generator_cli/templates/{actor_type}.py.txt'),
+
         # tests
-        (os.path.join(f'verified_{actor_type}s', module_name, 'tests', 'conftest.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/conftest.py.txt'),
-        (os.path.join(f'verified_{actor_type}s', module_name, 'tests', f'test_{module_name}.py'), 'https://raw.githubusercontent.com/dat-labs/dat-main/main/verified_stub_generator_cli/templates/tests/test_.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'tests', 'conftest.py'), f'{base_template_url}/verified_stub_generator_cli/templates/tests/{actor_type}/conftest.py.txt'),
+        (os.path.join(f'verified_{actor_type}s', module_name, 'tests', f'test_{module_name}.py'), f'{base_template_url}/verified_stub_generator_cli/templates/tests/{actor_type}/test_.py.txt'),
     ]
+    additional_path_templates = {
+        'source': [
+            # yml
+            (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.yml'), f'{base_template_url}/verified_stub_generator_cli/templates/catalog.yml.txt'),
+
+            # py
+            (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.py'), f'{base_template_url}/verified_stub_generator_cli/templates/catalog.py.txt'),
+            (os.path.join(f'verified_{actor_type}s', module_name, 'streams.py'),
+            f'{base_template_url}/verified_stub_generator_cli/templates/streams.py.txt'),
+        ],
+    }
     replacements = [
         ('<actor_name>', actor_name),
         ('<module_name>', module_name),
+        ('<actor_type>', actor_type),
     ]
+    paths_templates += additional_path_templates.get(actor_type, [])
+    
     for path_template in paths_templates:
         file_path = path_template[0]
         template_url = path_template[1]
@@ -72,8 +88,8 @@ def camel_to_snake(camelcase_str):
     return re.sub(r'(?<!^)(?=[A-Z])', '_', camelcase_str).lower()
 
 @click.command()
-@click.option('--actor-type', type=click.Choice(['source', 'generator', 'destination']),
-              prompt='Enter actor type', help='Type of the actor (source, generator, destination)')
+@click.option('--actor-type', type=click.Choice(actor_types),
+              prompt='Enter actor type', help='Type of the actor ({})'.format(', '.join(actor_types)))
 @click.option('--actor-name', prompt='Enter actor name', callback=validate_actor_name,
               help='Name of the actor (alphanumeric, first character cannot be a number, max 255 characters)')
 @click.option('--module-name', prompt='Enter module name', callback=validate_module_name,
