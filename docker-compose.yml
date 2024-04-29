@@ -17,6 +17,10 @@ services:
       context: "./dat-api"
     volumes:
       - ./dat-api:/app
+      - ./dat-core:/usr/local/src/dat-core
+      - ./verified-sources:/usr/local/src/verified-sources
+      - ./verified-generators:/usr/local/src/verified-generators
+      - ./verified-destinations:/usr/local/src/verified-destinations
     depends_on:
       db-backend:
         condition: service_healthy
@@ -24,11 +28,17 @@ services:
       - 8000:8000
     networks:
      - dat-network
+    healthcheck:
+      test: "exit 0"
   orchestrator:
     build:
       context: "./dat-orchestrator"
     volumes:
       - ./dat-orchestrator:/repo
+      - ./dat-core:/usr/local/src/dat-core
+      - ./verified-sources:/usr/local/src/verified-sources
+      - ./verified-generators:/usr/local/src/verified-generators
+      - ./verified-destinations:/usr/local/src/verified-destinations
     depends_on:
       message-queue:
         condition: service_healthy
@@ -74,12 +84,28 @@ services:
       context: "./dat-ui"
     volumes:
       - ./dat-ui/src:/app/src
+    depends_on:
+      api:
+        condition: service_healthy
     ports:
       - 3000:3000
     networks:
      - dat-network
     healthcheck:
       test: "exit 0"
+  object-storage:
+    image: minio/minio:latest
+    volumes:
+      - ./object-storage-data:/data
+    environment:
+      MINIO_ROOT_USER: "los_user"
+      MINIO_ROOT_PASSWORD: "los_pass"
+    ports:
+      - 9000:9000
+      - 9001:9001
+    command: server --address ":9000" --console-address ":9001" /data
+    networks:
+     - dat-network
 networks:
   dat-network:
     driver: bridge
