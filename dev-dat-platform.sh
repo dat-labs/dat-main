@@ -3,6 +3,9 @@
 # Default value for rebuild argument
 rebuild=false
 
+# Default value for fulldepth argument
+fulldepth=false
+
 # Parse command line arguments
 for arg in "$@"; do
     case $arg in
@@ -40,7 +43,11 @@ repos=(
 )
 
 for repo in "${repos[@]}"; do
-    git clone --depth=1 "$repo"
+    if [ "$fulldepth" = true ]; then
+        git clone  "$repo"
+    else
+        git clone --depth=1 "$repo"
+    fi
 done
 
 # Step 3: Create a directory named db-scripts
