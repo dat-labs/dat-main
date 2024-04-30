@@ -21,6 +21,19 @@ for arg in "$@"; do
         # Unknown option
         ;;
     esac
+    case $arg in
+        --fulldepth=*)
+        fulldepth="${arg#*=}"
+        shift
+        ;;
+        --fulldepth)
+        fulldepth=true
+        shift
+        ;;
+        *)
+        # Unknown option
+        ;;
+    esac
 done
 # echo "Rebuild value: $rebuild"
 
