@@ -47,6 +47,7 @@ services:
       context: "./dat-telemetry"
     volumes:
       - ./dat-telemetry:/repo
+      - ./dat-api-sdk:/usr/local/src/dat-api-sdk
     depends_on:
       message-queue:
         condition: service_healthy
