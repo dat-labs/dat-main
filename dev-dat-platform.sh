@@ -43,16 +43,16 @@ cd dat-dev || exit
 
 # Step 2: Clone a list of repos from Git
 repos=(
-    "https://github.com/dat-labs/dat-api.git"
-    "https://github.com/dat-labs/dat-orchestrator.git"
-    "https://github.com/dat-labs/dat-telemetry.git"
-    "https://github.com/dat-labs/dat-api-sdk.git"
-    "https://github.com/dat-labs/dat-scheduler.git"
-    "https://github.com/dat-labs/dat-ui.git"
-    "https://github.com/dat-labs/dat-core.git"
-    "https://github.com/dat-labs/verified-sources.git"
-    "https://github.com/dat-labs/verified-generators.git"
-    "https://github.com/dat-labs/verified-destinations.git"
+    "git@github.com:dat-labs/dat-api.git"
+    "git@github.com:dat-labs/dat-orchestrator.git"
+    "git@github.com:dat-labs/dat-telemetry.git"
+    "git@github.com:dat-labs/dat-api-sdk.git"
+    "git@github.com:dat-labs/dat-scheduler.git"
+    "git@github.com:dat-labs/dat-ui.git"
+    "git@github.com:dat-labs/dat-core.git"
+    "git@github.com:dat-labs/verified-sources.git"
+    "git@github.com:dat-labs/verified-generators.git"
+    "git@github.com:dat-labs/verified-destinations.git"
 )
 
 for repo in "${repos[@]}"; do

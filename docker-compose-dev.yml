@@ -56,8 +56,6 @@ services:
   scheduler:
     build:
       context: "./dat-scheduler"
-      # args:
-      #   - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
     volumes:
       - ./dat-scheduler:/repo
     depends_on:
