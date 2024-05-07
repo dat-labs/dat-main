@@ -28,8 +28,6 @@ services:
       - 8000:8000
     networks:
      - dat-network
-    healthcheck:
-      test: "exit 0"
   orchestrator:
     build:
       context: "./dat-orchestrator"
@@ -49,6 +47,7 @@ services:
       context: "./dat-telemetry"
     volumes:
       - ./dat-telemetry:/repo
+      - ./dat-api-sdk:/usr/local/src/dat-api-sdk
     depends_on:
       message-queue:
         condition: service_healthy
@@ -84,9 +83,6 @@ services:
       context: "./dat-ui"
     volumes:
       - ./dat-ui/src:/app/src
-    depends_on:
-      api:
-        condition: service_healthy
     ports:
       - 3000:3000
     networks:

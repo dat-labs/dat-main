@@ -97,6 +97,18 @@ CREATE TYPE public.connection_run_logs_loglevel_enum AS ENUM (
 ALTER TYPE public.connection_run_logs_loglevel_enum OWNER TO root;
 
 --
+-- Name: connection_run_logs_message_type_enum; Type: TYPE; Schema: public; Owner: root
+--
+
+CREATE TYPE public.connection_run_logs_message_type_enum AS ENUM (
+    'STATE',
+    'LOG'
+);
+
+
+ALTER TYPE public.connection_run_logs_message_type_enum OWNER TO root;
+
+--
 -- Name: connection_status_enum; Type: TYPE; Schema: public; Owner: root
 --
 
@@ -348,11 +360,12 @@ ALTER TABLE public.alembic_version OWNER TO root;
 CREATE TABLE public.connection_run_logs (
     id character varying(36) DEFAULT public.uuid_generate_v4() NOT NULL,
     connection_id character varying(36) NOT NULL,
-    level public.connection_run_logs_loglevel_enum NOT NULL,
     message character varying NOT NULL,
     stack_trace character varying,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    run_id character varying(36) NOT NULL,
+    message_type public.connection_run_logs_message_type_enum NOT NULL
 );
 
 
@@ -444,6 +457,13 @@ CREATE TABLE public.workspaces (
 
 ALTER TABLE public.workspaces OWNER TO root;
 
+--
+-- Data for Name: actor_instances; Type: TABLE DATA; Schema: public; Owner: root
+--
+
+COPY public.actor_instances (id, workspace_id, actor_id, user_id, name, configuration, actor_type, status, created_at, updated_at) FROM stdin;
+\.
+
 
 --
 -- Data for Name: actors; Type: TABLE DATA; Schema: public; Owner: root
@@ -452,7 +472,7 @@ ALTER TABLE public.workspaces OWNER TO root;
 COPY public.actors (id, name, icon, actor_type, status, created_at, updated_at, module_name) FROM stdin;
 gdrive-uuid	GoogleDrive	\N	source	active	2024-03-30 19:34:14.194913	2024-04-02 18:55:02.674968	google_drive
 pinecone-uuid	Pinecone	\N	destination	active	2024-03-30 19:34:14.194913	2024-04-02 18:56:13.259826	pinecone
-5a8e3e81-5c2f-44a1-9e70-e51f6df783aa	OpenAI	\N	generator	active	2024-03-30 19:34:14.194913	2024-04-02 19:32:41.22117	openai
+openai-uuid	OpenAI	\N	generator	active	2024-03-30 19:34:14.194913	2024-05-02 19:49:40.057767	openai
 \.
 
 
@@ -461,9 +481,24 @@ pinecone-uuid	Pinecone	\N	destination	active	2024-03-30 19:34:14.194913	2024-04-
 --
 
 COPY public.alembic_version (version_num) FROM stdin;
-252d37bbf32c
+04274709cf77
 \.
 
+
+--
+-- Data for Name: connection_run_logs; Type: TABLE DATA; Schema: public; Owner: root
+--
+
+COPY public.connection_run_logs (id, connection_id, message, stack_trace, created_at, updated_at, run_id, message_type) FROM stdin;
+\.
+
+
+--
+-- Data for Name: connections; Type: TABLE DATA; Schema: public; Owner: root
+--
+
+COPY public.connections (id, name, source_instance_id, generator_instance_id, destination_instance_id, configuration, catalog, status, created_at, updated_at, workspace_id, namespace_format, prefix, schedule, schedule_type) FROM stdin;
+\.
 
 
 --
@@ -729,3 +764,4 @@ ALTER TABLE ONLY public.workspaces
 --
 -- PostgreSQL database dump complete
 --
+
