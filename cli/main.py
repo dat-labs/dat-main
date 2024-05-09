@@ -40,31 +40,31 @@ def create_files_from_template(module_name, actor_name, actor_type):
     paths_templates = [
         # yml
         (os.path.join(f'verified_{actor_type}s', module_name, 'specs.yml'),
-         f'{base_template_url}/verified_stub_generator_cli/templates/specs.yml.txt'),
+         f'{base_template_url}/cli/templates/specs.yml.txt'),
 
         # py
         (os.path.join(f'verified_{actor_type}s', module_name, 'specs.py'),
-         f'{base_template_url}/verified_stub_generator_cli/templates/specs.py.txt'),
+         f'{base_template_url}/cli/templates/specs.py.txt'),
         (os.path.join(f'verified_{actor_type}s', module_name, f'{actor_type}.py'),
-         f'{base_template_url}/verified_stub_generator_cli/templates/{actor_type}.py.txt'),
+         f'{base_template_url}/cli/templates/{actor_type}.py.txt'),
 
         # tests
         (os.path.join(f'verified_{actor_type}s', module_name, 'tests', 'conftest.py'),
-         f'{base_template_url}/verified_stub_generator_cli/templates/tests/{actor_type}/conftest.py.txt'),
+         f'{base_template_url}/cli/templates/tests/{actor_type}/conftest.py.txt'),
         (os.path.join(f'verified_{actor_type}s', module_name, 'tests', f'test_{module_name}.py'),
-         f'{base_template_url}/verified_stub_generator_cli/templates/tests/{actor_type}/test_.py.txt'),
+         f'{base_template_url}/cli/templates/tests/{actor_type}/test_.py.txt'),
     ]
     additional_path_templates = {
         'source': [
             # yml
             (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.yml'),
-             f'{base_template_url}/verified_stub_generator_cli/templates/catalog.yml.txt'),
+             f'{base_template_url}/cli/templates/catalog.yml.txt'),
 
             # py
             (os.path.join(f'verified_{actor_type}s', module_name, 'catalog.py'),
-             f'{base_template_url}/verified_stub_generator_cli/templates/catalog.py.txt'),
+             f'{base_template_url}/cli/templates/catalog.py.txt'),
             (os.path.join(f'verified_{actor_type}s', module_name, 'streams.py'),
-             f'{base_template_url}/verified_stub_generator_cli/templates/streams.py.txt'),
+             f'{base_template_url}/cli/templates/streams.py.txt'),
         ],
     }
     replacements = [
