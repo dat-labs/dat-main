@@ -34,6 +34,7 @@ services:
     volumes:
       - ./dat-orchestrator:/repo
       - ./dat-core:/usr/local/src/dat-core
+      - ./dat-api-sdk:/usr/local/src/dat-api-sdk
       - ./verified-sources:/usr/local/src/verified-sources
       - ./verified-generators:/usr/local/src/verified-generators
       - ./verified-destinations:/usr/local/src/verified-destinations
