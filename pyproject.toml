@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "dat-main"
+version = "0.1.0"
+description = "House core ops functions for the dat project"
+authors = ["Rijumone Choudhuri <mailmeonriju@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.31.0"
+click = "^8.1.7"
+dat-client = {git = "https://github.com/dat-labs/dat-api-sdk", rev = "main", develop = true}
+# dat-client = {path = "./dat-dev/dat-api-sdk", develop = true}
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
