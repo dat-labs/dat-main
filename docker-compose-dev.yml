@@ -21,6 +21,8 @@ services:
       - ./verified-sources:/usr/local/src/verified-sources
       - ./verified-generators:/usr/local/src/verified-generators
       - ./verified-destinations:/usr/local/src/verified-destinations
+    healthcheck:
+      test: "exit 0"
     depends_on:
       db-backend:
         condition: service_healthy
@@ -91,6 +93,9 @@ services:
      - dat-network
     healthcheck:
       test: "exit 0"
+    depends_on:
+      api:
+        condition: service_healthy
   object-storage:
     image: minio/minio:latest
     volumes:
@@ -104,6 +109,15 @@ services:
     command: server --address ":9000" --console-address ":9001" /data
     networks:
      - dat-network
+  ready:
+    image: busybox
+    command: wget -qO - https://raw.githubusercontent.com/dat-labs/dat-main/main/txt/dat-build-complete.txt | cat
+    depends_on:
+      ui:
+        condition: service_healthy
+    networks:
+     - dat-network
+
 networks:
   dat-network:
     driver: bridge

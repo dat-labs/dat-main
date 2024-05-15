@@ -106,6 +106,14 @@ services:
     command: server --address ":9000" --console-address ":9001" /data
     networks:
      - dat-network
+  ready:
+    image: busybox
+    command: wget -qO - https://raw.githubusercontent.com/dat-labs/dat-main/main/txt/dat-build-complete.txt | cat
+    depends_on:
+      ui:
+        condition: service_healthy
+    networks:
+     - dat-network
 networks:
   dat-network:
     driver: bridge
