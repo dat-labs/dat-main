@@ -28,5 +28,6 @@ python cli/main.py init
 ```bash
 python cli/main.py add-to-db
 ```
+> When restarting services for subsequent sessions, you can just do a `docker compose up` inside `./dat-dev`.
 
 Additional resources and further instructions right up to your PR can be found at [CONTRIBUTING.md](https://github.com/path/to/CONTRIBUTING.md).
