@@ -6,7 +6,17 @@
  ```bash
 curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash -s -- --rebuild=false
 ```
-3. Visit http://localhost:8000 on your browser once all connectors have come up. (TODO: how will people know this?)
+3. Wait for the build to complete and this message to show:
+```text
+
+     _      _     _         _ _    _                     _     _       _ 
+  __| |__ _| |_  | |__ _  _(_) |__| |  __ ___ _ __  _ __| |___| |_ ___| |
+ / _` / _` |  _| | '_ \ || | | / _` | / _/ _ \ '  \| '_ \ / -_)  _/ -_)_|
+ \__,_\__,_|\__| |_.__/\_,_|_|_\__,_| \__\___/_|_|_| .__/_\___|\__\___(_)
+                                                   |_|                   
+
+```
+4. Visit http://localhost:8000 on your browser.
 
 ## Contributing 🐱‍💻
 ### Verified Connectors
@@ -30,4 +40,4 @@ python cli/main.py add-to-db
 ```
 > When restarting services for subsequent sessions, you can just do a `docker compose up` inside `./dat-dev`.
 
-Additional resources and further instructions right up to your PR can be found at [CONTRIBUTING.md](https://github.com/path/to/CONTRIBUTING.md).
+Additional resources and further instructions right up to your PR can be found at [CONTRIBUTING.md](https://github.com/dat-labs/dat-main/blob/main/CONTRIBUTING.md).
