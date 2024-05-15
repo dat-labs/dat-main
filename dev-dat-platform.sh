@@ -70,7 +70,8 @@ mkdir db-scripts
 curl -o db-scripts/001-create-db-seed.sql https://raw.githubusercontent.com/dat-labs/dat-main/main/db-scripts/001-create-db-seed.sql
 
 # Step 5: Download a docker-compose file via curl
-curl -o docker-compose.yml https://raw.githubusercontent.com/dat-labs/dat-main/feature/local-dev-docker-setup/docker-compose-dev.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose-dev.yml
+# cp ../docker-compose-dev.yml docker-compose.yml
 
 # Step 6: Run docker compose build
 if [ "$rebuild" = true ]; then

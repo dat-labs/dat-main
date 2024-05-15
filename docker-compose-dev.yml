@@ -83,7 +83,8 @@ services:
     build:
       context: "./dat-ui"
     volumes:
-      - ./dat-ui/src:/app/src
+      - ./dat-ui:/app
+      - /app/node_modules
     ports:
       - 3000:3000
     networks:
