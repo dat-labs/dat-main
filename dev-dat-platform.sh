@@ -78,7 +78,7 @@ done
 mkdir db-scripts
 
 # Step 4: Download an SQL file via curl and save it in db-scripts directory
-curl -o db-scripts/001-create-db-seed.sql https://raw.githubusercontent.com/dat-labs/dat-main/main/db-scripts/001-create-db-seed.sql
+cp ../db-scripts/001-create-db-seed.sql db-scripts/
 
 # Step 5: Download a docker-compose file via curl
 # curl -o docker-compose.yml https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose-dev.yml
@@ -88,6 +88,18 @@ cp ../docker-compose-dev.yml docker-compose.yml
 if [ "$rebuild" = true ]; then
     docker compose build
 fi
+
+docker compose up db-backend api -d
+sleep 5
+cd ../ || exit
+ python cli/main.py add-to-db --actor-type="source" --actor-name="GoogleDrive" --module-name="google_drive"
+ python cli/main.py add-to-db --actor-type="source" --actor-name="WebsiteCrawler" --module-name="website_crawler"
+ python cli/main.py add-to-db --actor-type="generator" --actor-name="OpenAI" --module-name="openai"
+ python cli/main.py add-to-db --actor-type="generator" --actor-name="SentenceTransformers" --module-name="sentencetransformers"
+ python cli/main.py add-to-db --actor-type="destination" --actor-name="Pinecone" --module-name="pinecone"
+
+cd dat-dev || exit
+docker compose down
 
 # Step 7: Run docker compose up
 docker compose up
