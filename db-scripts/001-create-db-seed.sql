@@ -466,17 +466,6 @@ COPY public.actor_instances (id, workspace_id, actor_id, user_id, name, configur
 
 
 --
--- Data for Name: actors; Type: TABLE DATA; Schema: public; Owner: root
---
-
-COPY public.actors (id, name, icon, actor_type, status, created_at, updated_at, module_name) FROM stdin;
-gdrive-uuid	GoogleDrive	\N	source	active	2024-03-30 19:34:14.194913	2024-04-02 18:55:02.674968	google_drive
-pinecone-uuid	Pinecone	\N	destination	active	2024-03-30 19:34:14.194913	2024-04-02 18:56:13.259826	pinecone
-openai-uuid	OpenAI	\N	generator	active	2024-03-30 19:34:14.194913	2024-05-02 19:49:40.057767	openai
-\.
-
-
---
 -- Data for Name: alembic_version; Type: TABLE DATA; Schema: public; Owner: root
 --
 
