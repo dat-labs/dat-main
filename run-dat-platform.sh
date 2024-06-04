@@ -68,7 +68,7 @@ docker compose up db-backend api -d
 sleep 5
 
 # Step 7.1: Create a directory named sh-scripts
-mkdir db-scripts
+mkdir sh-scripts
 
 # Step 7.2: Download an sh file via curl and save it in sh-scripts directory
 curl -o sh-scripts/actors-seed.sh https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.sh
