@@ -63,5 +63,21 @@ if [ "$rebuild" = true ]; then
     docker compose build
 fi
 
+# Step 7: Seed local database with verified-actors
+docker compose up db-backend api -d
+sleep 5
+
+# Step 7.1: Create a directory named sh-scripts
+mkdir db-scripts
+
+# Step 7.2: Download an sh file via curl and save it in sh-scripts directory
+curl -o sh-scripts/actors-seed.sh https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.sh
+
+# Step 7.3: Execute the downloaded file
+sh sh-scripts/actors-seed.sh
+
+# Prepare for launch
+docker compose down
+
 # Step 7: Run docker compose up
 docker compose up
