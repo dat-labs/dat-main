@@ -16,7 +16,7 @@ curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platf
                                                    |_|                   
 
 ```
-4. Visit http://localhost:8000 on your browser.
+4. Visit http://localhost:3000 on your browser.
 
 ## Contributing 🐱‍💻
 ### Verified Connectors
