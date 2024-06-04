@@ -17,10 +17,6 @@ services:
       context: "./dat-api"
     volumes:
       - ./dat-api:/app
-      - ./dat-core:/usr/local/src/dat-core
-      - ./verified-sources:/usr/local/src/verified-sources
-      - ./verified-generators:/usr/local/src/verified-generators
-      - ./verified-destinations:/usr/local/src/verified-destinations
     depends_on:
       db-backend:
         condition: service_healthy
@@ -35,10 +31,6 @@ services:
       context: "./dat-orchestrator"
     volumes:
       - ./dat-orchestrator:/repo
-      - ./dat-core:/usr/local/src/dat-core
-      - ./verified-sources:/usr/local/src/verified-sources
-      - ./verified-generators:/usr/local/src/verified-generators
-      - ./verified-destinations:/usr/local/src/verified-destinations
     depends_on:
       message-queue:
         condition: service_healthy
