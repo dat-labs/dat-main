@@ -15,6 +15,18 @@ curl -X 'POST' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
+  "name": "AmazonS3",
+  "module_name": "amazon_s3",
+  "icon": null,
+  "actor_type": "source",
+  "status": "active"
+}'
+
+curl -X 'POST' \
+  'http://localhost:8000/actors' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
   "name": "WebsiteCrawler",
   "module_name": "website_crawler",
   "icon": null,
@@ -53,6 +65,30 @@ curl -X 'POST' \
   -d '{
   "name": "Qdrant",
   "module_name": "qdrant",
+  "icon": null,
+  "actor_type": "destination",
+  "status": "active"
+}'
+
+curl -X 'POST' \
+  'http://localhost:8000/actors' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "Weaviate",
+  "module_name": "weaviate",
+  "icon": null,
+  "actor_type": "destination",
+  "status": "active"
+}'
+
+curl -X 'POST' \
+  'http://localhost:8000/actors' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "name": "Milvus",
+  "module_name": "milvus",
   "icon": null,
   "actor_type": "destination",
   "status": "active"
