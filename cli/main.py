@@ -146,6 +146,7 @@ def add_to_db(actor_type, actor_name, module_name, ):
                     name=actor_name,
                     module_name=module_name,
                     actor_type=actor_type,
+                    icon=f'{module_name}.svg',
                 )
             )
             print(
