@@ -1,6 +1,7 @@
 # dat-main
 
 ## Running locally 🚀
+### First build and run
 0. Ensure that you have `docker` installed.
 1. Download and run
  ```bash
@@ -17,6 +18,17 @@ curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platf
 
 ```
 4. Visit http://localhost:3000 on your browser.
+
+> Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop dat.
+
+### Subsequent runs
+To run dat again, navigate to the `dat` dir and run `docker compose up`.
+```bash
+cd dat && docker compose up
+```
+
+<!-- ### Update
+To update the source files to the latest revision. -->
 
 ## Contributing 🐱‍💻
 ### Verified Connectors
