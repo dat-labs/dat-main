@@ -5,7 +5,7 @@ curl -X 'POST' \
   -d '{
   "name": "GoogleDrive",
   "module_name": "google_drive",
-  "icon": null,
+  "icon": "google_drive",
   "actor_type": "source",
   "status": "active"
 }'
@@ -17,7 +17,7 @@ curl -X 'POST' \
   -d '{
   "name": "AmazonS3",
   "module_name": "amazon_s3",
-  "icon": null,
+  "icon": "amazon_s3",
   "actor_type": "source",
   "status": "active"
 }'
@@ -29,7 +29,7 @@ curl -X 'POST' \
   -d '{
   "name": "WebsiteCrawler",
   "module_name": "website_crawler",
-  "icon": null,
+  "icon": "website_crawler",
   "actor_type": "source",
   "status": "active"
 }'
@@ -41,7 +41,7 @@ curl -X 'POST' \
   -d '{
   "name": "OpenAI",
   "module_name": "openai",
-  "icon": null,
+  "icon": "openai",
   "actor_type": "generator",
   "status": "active"
 }'
@@ -53,7 +53,7 @@ curl -X 'POST' \
   -d '{
   "name": "Pinecone",
   "module_name": "pinecone",
-  "icon": null,
+  "icon": "pinecone",
   "actor_type": "destination",
   "status": "active"
 }'
@@ -65,7 +65,7 @@ curl -X 'POST' \
   -d '{
   "name": "Qdrant",
   "module_name": "qdrant",
-  "icon": null,
+  "icon": "qdrant",
   "actor_type": "destination",
   "status": "active"
 }'
@@ -77,7 +77,7 @@ curl -X 'POST' \
   -d '{
   "name": "Weaviate",
   "module_name": "weaviate",
-  "icon": null,
+  "icon": "weaviate",
   "actor_type": "destination",
   "status": "active"
 }'
@@ -89,7 +89,7 @@ curl -X 'POST' \
   -d '{
   "name": "Milvus",
   "module_name": "milvus",
-  "icon": null,
+  "icon": "milvus",
   "actor_type": "destination",
   "status": "active"
 }'
