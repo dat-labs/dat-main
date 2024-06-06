@@ -50,6 +50,12 @@ python cli/main.py init
 ```bash
 python cli/main.py add-to-db
 ```
-> When restarting services for subsequent sessions, you can just do a `docker compose up` inside `./dat-dev`.
+> Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop dat.
+
+### Subsequent runs
+To run dat again, navigate to the `dat-dev` dir and run `docker compose up`.
+```bash
+cd dat-dev && docker compose up
+```
 
 Additional resources and further instructions right up to your PR can be found at [CONTRIBUTING.md](https://github.com/dat-labs/dat-main/blob/main/CONTRIBUTING.md).
