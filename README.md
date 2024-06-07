@@ -1,4 +1,18 @@
-# dat-main
+# dat
+
+**dat** is an open-source data integration platform. It platform enables seamless replication and transformation of data into various vector databases, making it an ideal solution for applications involving machine learning, search engines, and AI-driven analytics.
+
+### Key Features
+
+1. **Open Source**: Fully open-source, promoting community contributions and enabling users to tailor the platform to their specific needs.
+2. **Extensive Connectors**: Provides a comprehensive library of connectors for various vector storage systems, facilitating easy data integration from multiple sources.
+3. **Custom Connector Development**: Users can create and manage their own connectors, ensuring compatibility with any vector database.
+4. **Automated Scheduling**: Includes robust scheduling capabilities to automate and manage recurring data replication tasks, ensuring data is always up-to-date.
+5. **Monitoring and Alerting**: Offers built-in monitoring and alerting features to track the health of data pipelines and quickly address any issues that arise.
+
+**Project Name** aims to simplify the integration and management of data within vector storage environments, providing a scalable and user-friendly platform for data engineers, machine learning practitioners, and developers. By leveraging our platform, users can focus on leveraging their data for advanced analytics and AI applications without worrying about the complexities of data integration.
+
+Join us in building a powerful and flexible data integration solution for the vector storage ecosystem!
 
 ## Running locally 🚀
 ### First build and run
@@ -32,8 +46,8 @@ To update the source files to the latest revision. -->
 
 ## Contributing 🐱‍💻
 ### Verified Connectors
-0. Clone this repo.
-1. Ensure that you have `docker` installed.
+0. Ensure that you have `docker` installed.
+1. Clone this repo and `cd dat-main/` into the cloned repo.
 2. Download and run
  ```bash
 ./dev-dat-platform.sh --rebuild=false
