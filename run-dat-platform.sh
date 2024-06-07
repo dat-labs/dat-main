@@ -65,7 +65,18 @@ fi
 
 # Step 7: Seed local database with verified-actors
 docker compose up db-backend api -d
-sleep 5
+API_URL="http://localhost:8000/connections/list"
+
+while true; do
+    # Use curl to check if the API is reachable
+    if curl --output /dev/null -H 'accept: application/json' --silent --head --fail "$API_URL"; then
+        echo "API is reachable. Exiting the loop."
+        break
+    else
+        echo "API is not reachable. Sleeping for 1 second..."
+        sleep 1
+    fi
+done
 
 # Step 7.1: Create a directory named sh-scripts
 mkdir sh-scripts

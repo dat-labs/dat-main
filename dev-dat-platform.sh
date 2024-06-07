@@ -90,7 +90,19 @@ if [ "$rebuild" = true ]; then
 fi
 
 docker compose up db-backend api -d
-sleep 5
+API_URL="http://localhost:8000/connections/list"
+
+while true; do
+    # Use curl to check if the API is reachable
+    if curl -X 'GET' --output /dev/null -H 'accept: application/json' --silent --head --fail "$API_URL"; then
+        echo "API is reachable. Exiting the loop."
+        break
+    else
+        echo "API is not reachable. Sleeping for 1 second..."
+        sleep 1
+    fi
+done
+
 
 sh ../sh-scripts/actors-seed.sh
 

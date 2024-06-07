@@ -46,8 +46,8 @@ To update the source files to the latest revision. -->
 
 ## Contributing 🐱‍💻
 ### Verified Connectors
-0. Ensure that you have `docker` installed.
-1. Clone this repo and `cd dat-main/` into the cloned repo.
+0. Clone this repo.
+1. Ensure that you have `docker` installed.
 2. Download and run
  ```bash
 ./dev-dat-platform.sh --rebuild=false
@@ -59,10 +59,19 @@ To update the source files to the latest revision. -->
 ```bash
 python cli/main.py init
 ```
-6. Develop your `verified-*` connector.
-7. Add your connector to local database for local integration testing.
+6. Stub files have been generated inside the `verified-*` dir. Create a virtualenv (minimum Python3.10) and activate it.
+
+7. Install dependencies.
 ```bash
-python cli/main.py add-to-db
+cd verified-source/generator/destination && pip install poetry && poetry install
+```
+8. Develop your `verified-*` connector and ensure tests pass.
+```bash
+pytest -k "your_connector"
+```
+9. Add your connector to local database for local integration testing.
+```bash
+cd /path/to/dat-main && python cli/main.py add-to-db
 ```
 > Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop dat.
 
