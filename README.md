@@ -10,7 +10,7 @@
 4. **Automated Scheduling**: Includes robust scheduling capabilities to automate and manage recurring data replication tasks, ensuring data is always up-to-date.
 5. **Monitoring and Alerting**: Offers built-in monitoring and alerting features to track the health of data pipelines and quickly address any issues that arise.
 
-**Project Name** aims to simplify the integration and management of data within vector storage environments, providing a scalable and user-friendly platform for data engineers, machine learning practitioners, and developers. By leveraging our platform, users can focus on leveraging their data for advanced analytics and AI applications without worrying about the complexities of data integration.
+**dat** aims to simplify the integration and management of data within vector storage environments, providing a scalable and user-friendly platform for data engineers, machine learning practitioners, and developers. By leveraging our platform, users can focus on leveraging their data for advanced analytics and AI applications without worrying about the complexities of data integration.
 
 Join us in building a powerful and flexible data integration solution for the vector storage ecosystem!
 
