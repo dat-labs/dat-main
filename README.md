@@ -81,4 +81,8 @@ To run dat again, navigate to the `dat-dev` dir and run `docker compose up`.
 cd dat-dev && docker compose up
 ```
 
+## Troubleshooting
+Try looking for your issue under [BUGS](https://github.com/dat-labs/dat-main/issues?q=%5BBUG%5D). There is a good chance that someone else from the community encountered the issue and found a solution.
+
+
 Additional resources and further instructions right up to your PR can be found at [CONTRIBUTING.md](https://github.com/dat-labs/dat-main/blob/main/CONTRIBUTING.md).
