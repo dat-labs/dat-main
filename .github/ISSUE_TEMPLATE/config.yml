@@ -1,0 +1,61 @@
+blank_issues_enabled: false
+issue_template:
+  - name: Bug report
+    description: Use this template for reporting bugs.
+    labels: bug
+    assignees: ''
+    body: |
+      ## Description
+
+      Please provide a clear and concise description of the issue. What is the expected behavior, and what is the actual behavior?
+
+      ## Steps to Reproduce
+
+      Please provide detailed steps to reproduce the issue:
+      
+      1. 
+      2. 
+      3. 
+
+      ## Expected Behavior
+
+      What should happen when following the steps above?
+
+      ## Actual Behavior
+
+      What actually happens when following the steps above?
+
+      ## Screenshots
+
+      If applicable, add screenshots to help explain your problem.
+
+      ## Environment
+
+      Please provide the following details:
+      - Operating System:
+      - Browser (if applicable):
+      - Python version (if applicable):
+      - Other relevant software versions:
+
+      ## Additional Context
+
+      Add any other context about the problem here.
+
+  - name: Feature request
+    description: Use this template for suggesting new features.
+    labels: enhancement
+    assignees: ''
+    body: |
+      ## Feature Request
+
+      **Is your feature request related to a problem? Please describe.**
+      A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+      **Describe the solution you'd like**
+      A clear and concise description of what you want to happen.
+
+      **Describe alternatives you've considered**
+      A clear and concise description of any alternative solutions or features you've considered.
+
+      **Additional context**
+      Add any other context or screenshots about the feature request here.
