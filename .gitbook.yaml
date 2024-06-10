@@ -1,0 +1,4 @@
+root: ./docs
+structure:
+  readme: integrations/README.md  # Optional: Set the readme file for the integrations section
+  summary: SUMMARY.md
