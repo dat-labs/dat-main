@@ -1,3 +1,1 @@
-![Background banner](/docs/images/background-banner.svg)
-
-
+![Background banner](../images/background-banner.svg)
