@@ -1,6 +1,6 @@
 # Summary
 
-[👋 dat Documentation](introduction/README.md)
+* [👋 dat Documentation](introduction/README.md)
 
 ## OVERVIEW
 
