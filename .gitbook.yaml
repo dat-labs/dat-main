@@ -1,0 +1,4 @@
+root: ./docs
+structure:
+  readme: ./integrations/README.md
+  summary: SUMMARY.md
