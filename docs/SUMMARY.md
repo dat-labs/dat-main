@@ -1,7 +1,55 @@
 # Summary
 
-## Using DAT
+[👋 dat Documentation](introduction/README.md)
 
-* [Integrations](integrations/README.md)
-  * [Destinations](integrations/destinations/README.md)
-    * [Pinecone](integrations/destinations/pinecone/README.md)
+## OVERVIEW
+
+* [About dat](overview/about-dat.md)
+* [dat Features](overview/dat-features.md)
+* [dat System Architecture](overview/dat-system-architecture.md)
+* [Core Concepts](overview/core-concepts/README.md)
+  * [Source](overview/core-concepts/source.md)
+  * [Generator](overview/core-concepts/generator.md)
+  * [Destination](overview/core-concepts/destination.md)
+* [Security](overview/security.md)
+* [dat support](overview/dat-support.md)
+
+
+## GETTING STARTED
+
+* [Deploy dat open source](getting-started/deploy-dat/README.md)
+  * [Quickstart](getting-started/deploy-dat/quickstart.md)
+  * [System Requirements](getting-started/deploy-dat/system-requirements.md)
+  * [Using Docker Compose](getting-started/deploy-dat/using-docker-compose.md)
+* [Familiarizing with the UI](getting-started/familiarizing-with-the-ui.md)
+* [Create your first connection](getting-started/first-connection/README.md)
+  * [Setting up a Source](getting-started/first-connection/source.md)
+  * [Setting up a Generator](getting-started/first-connection/generator.md)
+  * [Setting up a Destination](getting-started/first-connection/destination.md)
+
+
+## INTEGRATIONS
+
+* [Sources](integrations/sources/README.md)
+  * [Google Drive](integrations/sources/google-drive.md)
+* [Generators](integrations/generators/README.md)
+  * [Open AI](integrations/generators/open-ai.md)
+* [Destinations](integrations/destinations/README.md)
+  * [Pinecone](integrations/destinations/pinecone.md)
+
+
+## PRODUCT UPDATES
+
+* [Release Notes](product-updates/release-notes.md)
+* [Upcoming Features](product-updates/upcoming-features.md)
+
+
+## COMMUNITY RESOURCES
+* [Open Source Community](community-resources/open-source-community.md)
+* [Contributing to dat](community-resources/contributing-to-dat.md)
+* [Code Of Conduct](community-resources/code-of-conduct.md)
+* [GitHub Issues](community-resources/github-issues.md)
+
+## DEVELOPER GUIDES
+
+* [API Documentation](developer-guides/api-documentation.md)
