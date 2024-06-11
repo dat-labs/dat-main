@@ -10,3 +10,22 @@ class <actor_name>(GeneratorBase):
     def check_connection(self, config: ConnectorSpecification) -> Tuple[bool, Optional[Any]]:
         # Implement your connection check logic here
         return False, {}
+
+    def generate(
+        self,
+        config: <actor_name>Specification,
+        dat_message: DatMessage
+    ) -> Iterator[DatMessage]:
+        """
+        The generator operation will generator vector chunks
+
+        Args:
+            config (<actor_name>Specification): The user-provided configuration as specified by
+              the generator's spec.
+            document_chunks: DatMessage containing 
+        Yields:
+            Iterator[Dict]: Each row should be wrapped around a DatMessage object
+        """
+        # Implement your vectors generation logic here
+        dat_message.record.data.vectors = []
+        yield dat_message
