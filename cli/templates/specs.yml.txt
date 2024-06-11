@@ -1,5 +1,4 @@
-# ConnectorSpecification:
-description: Specification of a connector (source/embeddingsgenerator/destination)
+description: Specification of an actor (source/generator/destination)
 type: object
 required:
   - connection_specification
