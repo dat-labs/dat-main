@@ -20,3 +20,11 @@ You'll need the following information to configure the destination:
 - Pinecone API Key - The API key for your Pinecone account
 - Pinecone Environment - The name of the Pinecone environment to use
 - Pinecone Index name - The name of the Pinecone index to load data into
+
+## Features
+
+| Name     | Embedding | Gen  | Add | Sub |
+|----------|-----------|------|-----|-----|
+| Pine     | open      | open | som | sub |
+| Qdrant   | open      | open | val | 2   |
+| Weaviate | open      | open | 2   | arb |
