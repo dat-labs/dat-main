@@ -52,33 +52,68 @@ To update the source files to the latest revision. -->
  ```bash
 ./dev-dat-platform.sh --rebuild=false
 ```
-3. Create a virtualenv (minimum Python3.10) and activate it.
-4. `pip install poetry && poetry install`
-<!-- 1. Fork the [verified-*](https://github.com/dat-labs?q=verified-&type=all&language=&sort=) repo you want to contribute. -->
-5. Generate stubs files for the connector you wish to develop.
-```bash
-python cli/main.py init
-```
-6. Stub files have been generated inside the `verified-*` dir. Create a virtualenv (minimum Python3.10) and activate it.
 
-7. Install dependencies.
-```bash
-cd verified-source/generator/destination && pip install poetry && poetry install
-```
-8. Develop your `verified-*` connector and ensure tests pass.
-```bash
-pytest -k "your_connector"
-```
-9. Add your connector to local database for local integration testing.
-```bash
-cd /path/to/dat-main && python cli/main.py add-to-db
-```
 > Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop dat.
+### Integration
+Assuming that you have built an actor and you now wish to integrate it into the locally running `dat` instance, follow these steps.
+> For developing actors, please refer the detailed guide given [here](https://github.com/dat-labs/verified-generators/blob/main/DEV_GUIDE.md) for `verified-generators`.
+
+The following steps will:
+
+
+#### Steps:
+
+1. Create a virtualenv (minimum Python3.10) and activate it.
+2. Install `poetry` and install required dependencies.
+```bash
+pip install poetry && poetry install
+```
+5. Setup the repo for actor you wish to develop and/or integrate.
+This will:
+   - Delete the following repositories (ones which were cloned from dat-labs, if present):
+      - selected `verified-*` actor directory
+      - `dat-api`
+      - `dat-orchestrator`
+   - `git clone` your forked repository in its place (if not already cloned)
+   - `git checkout` your feature branch (if provided)
+   - Generate stub source files and tests (if does not exist already)
+   ```bash
+   python cli/main.py init
+   ```
+> Stub files have been generated inside the (cloned) `verified-*` dir. 
+
+6. Create a virtualenv (minimum Python3.10) and activate it. Install dependencies.
+```bash
+cd verified-{actor} && pip install poetry && poetry install
+```
+7. Develop your `verified-*` actor and ensure tests pass. Detailed dev guides are given here: verified-sources, [verified-generators](https://github.com/dat-labs/verified-generators/blob/main/DEV_GUIDE.md), verified-destinations
+   ```bash
+   pytest verified_*/{your-actor}/tests/test_{your-actor}.py 
+   ```
+
+8. To add your actor to local database for local integration testing:
+   - You might have added some `poetry` dependencies in your developed actor. These need to be installed in the `api` and `orchestrator` containers. This can be achieved by running.
+      ```bash
+      cd /path/to/dat-main/dat-dev
+      docker compose build api orchestrator --no-cache
+      ```
+   - Once the above is done, ensure your local `dat` is running:
+      ```bash
+      docker compose up
+      ```
+   - Execute the cli command to add your actor to the local backend database.
+      ```bash
+      cd /path/to/dat-main
+      python cli/main.py add-to-db
+      ```
+
+
 
 ### Subsequent runs
 To run dat again, navigate to the `dat-dev` dir and run `docker compose up`.
 ```bash
-cd dat-dev && docker compose up
+cd /path/to/dat-main/dat-dev
+docker compose up
 ```
 
 ## Troubleshooting

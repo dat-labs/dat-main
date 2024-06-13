@@ -2,15 +2,16 @@ import os
 from typing import (Any, Optional, Tuple, Mapping, List)
 from dat_core.connectors.sources.base import SourceBase
 from dat_core.connectors.sources.stream import Stream
-from dat_core.pydantic_models import ConnectorSpecification
+from verified_sources.<module_name>.specs import <actor_name>Specification
+from verified_sources.<module_name>.catalog import <actor_name>Catalog
 from verified_sources.<module_name>.streams import <module_name>Stream0
 
 
 class <actor_name>(SourceBase):
-    _spec_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'specs.yml')
-    _catalog_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'catalog.yml')
+    _spec_class = <actor_name>Specification
+    _catalog_class = <actor_name>Catalog
 
-    def check_connection(self, config: ConnectorSpecification) -> Tuple[bool, Optional[Any]]:
+    def check_connection(self, config: <actor_name>Specification) -> Tuple[bool, Optional[Any]]:
         # Implement your connection check logic here
         return False, {}
 

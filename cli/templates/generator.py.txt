@@ -5,9 +5,9 @@ from verified_generators.<module_name>.specs import <actor_name>Specification
 
 
 class <actor_name>(GeneratorBase):
-    _spec_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'specs.yml')
+    _spec_class = <actor_name>Specification
     
-    def check_connection(self, config: ConnectorSpecification) -> Tuple[bool, Optional[Any]]:
+    def check_connection(self, config: <actor_name>Specification) -> Tuple[bool, Optional[Any]]:
         # Implement your connection check logic here
         return False, {}
 
