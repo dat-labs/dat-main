@@ -1,6 +1,6 @@
-# Summary
+# Table of contents
 
-* [👋 dat Documentation](introduction/README.md)
+* [👋 dat Documentation](README.md)
 
 ## OVERVIEW
 
@@ -14,7 +14,6 @@
 * [Security](overview/security.md)
 * [dat support](overview/dat-support.md)
 
-
 ## GETTING STARTED
 
 * [Deploy dat open source](getting-started/deploy-dat/README.md)
@@ -27,7 +26,6 @@
   * [Setting up a Generator](getting-started/first-connection/generator.md)
   * [Setting up a Destination](getting-started/first-connection/destination.md)
 
-
 ## INTEGRATIONS
 
 * [Sources](integrations/sources/README.md)
@@ -37,14 +35,13 @@
 * [Destinations](integrations/destinations/README.md)
   * [Pinecone](integrations/destinations/pinecone.md)
 
-
 ## PRODUCT UPDATES
 
 * [Release Notes](product-updates/release-notes.md)
 * [Upcoming Features](product-updates/upcoming-features.md)
 
-
 ## COMMUNITY RESOURCES
+
 * [Open Source Community](community-resources/open-source-community.md)
 * [Contributing to dat](community-resources/contributing-to-dat.md)
 * [Code Of Conduct](community-resources/code-of-conduct.md)
