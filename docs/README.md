@@ -1,3 +1,5 @@
 # 👋 dat Documentation
 
 ![Background banner](images/background-banner.svg)
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>dat Installation Guide (Deploy)</strong></td><td>Install dat in your preferred environment.</td><td><a href=".gitbook/assets/dat-deploy.png">dat-deploy.png</a></td><td><a href="getting-started/deploy-dat/">deploy-dat</a></td></tr><tr><td><strong>API Documentation</strong></td><td>dat API allows you to programmatically access, run and administer the connections.</td><td><a href=".gitbook/assets/code-block.png">code-block.png</a></td><td><a href="developer-guides/api-documentation.md">api-documentation.md</a></td></tr><tr><td><strong>Release Notes</strong></td><td>Changelog. New feature upgrades</td><td><a href=".gitbook/assets/Checklist.png">Checklist.png</a></td><td><a href="product-updates/release-notes.md">release-notes.md</a></td></tr></tbody></table>
