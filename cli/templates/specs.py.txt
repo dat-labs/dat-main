@@ -7,8 +7,9 @@ from __future__ import annotations
 from typing import Any, Dict, Optional
 
 from pydantic import AnyUrl, BaseModel, Field
+from dat_core.pydantic_models import ConnectionSpecification
 
-class ConnectionSpecification(BaseModel):
+class ConnectionSpecificationModel(ConnectionSpecification):
     class Config:
         extra = 'allow'
 
@@ -27,7 +28,7 @@ class <actor_name>Specification(BaseModel):
     module_name: str = Field(
         ..., description='Name of the python module for this connector'
     )
-    connection_specification: ConnectionSpecification = Field(
+    connection_specification: ConnectionSpecificationModel = Field(
         ...,
         description='ConnectorDefinition specific blob. Must be a valid JSON string.',
     )
