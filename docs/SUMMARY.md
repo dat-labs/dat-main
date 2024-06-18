@@ -34,6 +34,9 @@
   * [Open AI](integrations/generators/open-ai.md)
 * [Destinations](integrations/destinations/README.md)
   * [Pinecone](integrations/destinations/pinecone.md)
+  * [Qdrant](integrations/destinations/qdrant.md)
+  * [Weaviate](integrations/destinations/weaviate.md)
+  * [Milvus](integrations/destinations/milvus.md)
 
 ## PRODUCT UPDATES
 
