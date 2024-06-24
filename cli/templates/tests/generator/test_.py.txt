@@ -29,4 +29,4 @@ def test_generate(valid_connection_object, valid_dat_record_message):
         dat_message=DatMessage(**valid_dat_record_message),
     )
     for record in records:
-        assert DatMessage.model_validate(record)
+        assert DatMessage.model_dump_json(record)
