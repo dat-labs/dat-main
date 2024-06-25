@@ -20,14 +20,15 @@ This connector streamlines the process of creating a Pinecone index and loading 
 
 Once you've filled in the required fields, you can use the "Test and Save" button to validate the provided information and create or update the Pinecone destination in your dat configuration.
 
-{% code fullWidth="false" %}
 ```python
-def check() -> Tuple[bool, Optional[str]]:
-    # Check if the connection is valid by validating the client
-    try:
-        self._create_client()
-        return True, None
-    except Exception as e:
-        return False, str(e)
+def metadata_filter(metadata: StreamMetadata) -> Any:
+    filters = []
+    for field in self.METADATA_FILTER_FIELDS:
+        if field in metadata.model_dump().keys():
+            filters.append({
+                "path": field,
+                "operator": "Equal",
+                "valueString": metadata.model_dump()[field]
+            })
+    return filters
 ```
-{% endcode %}
