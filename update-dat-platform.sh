@@ -1,21 +1,25 @@
-#!/bin/sh 
+#!/bin/bash 
 
-# Step 1: checking the arguments and variable
-branch=${1:-"main"} # Use provided branch argument, defaulting to "main" if not provided
+# Step 1: Stop any running docker images
+docker compose down
+
+# Step 2: Setting up variables
+branch="main"
 repo_name="dat*"
 
-# Step 2: Update the repos starting with 'dat'
+# Step 3: Update the repos starting with 'dat'
 find . -type d -name "$repo_name" | while IFS= read dir; do
     echo "Updating: $dir"
     git -C $dir checkout "$branch" && git -C $dir pull
 done
 
-# Step 3: Download the docker-compose file via curl
+# Step 4: Download the docker-compose file via curl
 curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.yml --silent
 
+# Step 5: Build the images
 docker compose build
 
-# Step 4: Seed local database with verified-actors
+# Step 6: Seed local database with verified-actors
 docker compose up db-backend api -d
 API_URL="http://localhost:8000/connections/list"
 
@@ -31,15 +35,15 @@ while true; do
 done
 
 
-# Step 4.1: Download an sh file via curl and save it in sh-scripts directory
+# Step 6.1: Download an sh file via curl and save it in sh-scripts directory
 curl -o sh-scripts/actors-seed.sh https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.sh
 curl -o sh-scripts/actors.csv https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors.csv
 
 
-# Step 4.2 Execute the downloaded file
-sh sh-scripts/actors-seed.sh
+# Step 6.2 Execute the downloaded file
+bash sh-scripts/actors-seed.sh
 
 # Stop 
 docker compose down
 
-echo "Updated dat :)"
+echo "Updated dat"

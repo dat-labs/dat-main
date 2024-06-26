@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Read all the rows starting from the second row
 tail -n +2 sh-scripts/actors.csv |
@@ -9,12 +9,12 @@ do
     # Creates one if it does not exist
     if response=$(curl -X 'GET' "http://localhost:8000/actors/$actor_type/list" -H 'accept: application/json' -s)
     then
-        found_text=$(echo "$response" | grep "$name") # Search for name in the response
+        found_text=$(echo "$response" | grep "$module_name") # Search for module_name in the response
         if [ -n "$found_text" ]
             then echo "$name already exists"
         else
             #Create an actor since it does not exist
-            if curl -X 'POST' --output /dev/null 'http://localhost:8000/actors' \
+            if curl -X 'POST' 'http://localhost:8000/actors' \
                 -H 'accept: application/json' -H 'Content-Type: application/json' \
                 -d "{
                     \"name\": \"$name\",
@@ -22,7 +22,7 @@ do
                     \"icon\": \"$icon\",
                     \"actor_type\": \"$actor_type\",
                     \"status\": \"$status\"
-                }" -s
+                }"
             then
                 echo "Created an instance of $name"
             else
@@ -30,6 +30,6 @@ do
             fi
         fi
     else
-        echo "API not reachable $name"
+        echo "API not reachable"
     fi
 done
