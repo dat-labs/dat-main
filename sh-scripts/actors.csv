@@ -1,0 +1,9 @@
+name,module_name,icon,actor_type,status
+GoogleDrive,google_drive,google_drive,source,active
+AmazonS3,amazon_s3,amazon_s3,source,active
+WebsiteCrawler,website_crawler,website_crawler,source,active
+OpenAI,openai,openai,generator,active
+Pinecone,pinecone,pinecone,destination,active
+Qdrant,qdrant,qdrant,destination,active
+Weaviate,weaviate,weaviate,destination,active
+Milvus,milvus,milvus,destination,active
