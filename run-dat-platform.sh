@@ -83,6 +83,7 @@ mkdir sh-scripts
 
 # Step 7.2: Download an sh file via curl and save it in sh-scripts directory
 curl -o sh-scripts/actors-seed.sh https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.sh
+curl -o sh-scripts/actors.csv https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors.csv
 
 # Step 7.3: Execute the downloaded file
 bash sh-scripts/actors-seed.sh
