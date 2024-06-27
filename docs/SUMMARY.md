@@ -32,6 +32,7 @@
   * [Google Drive](integrations/sources/google-drive.md)
 * [Generators](integrations/generators/README.md)
   * [Open AI](integrations/generators/open-ai.md)
+  * [OpenAI](integrations/generators/openai.md)
 * [Destinations](integrations/destinations/README.md)
   * [Pinecone](integrations/destinations/pinecone.md)
   * [Qdrant](integrations/destinations/qdrant.md)
