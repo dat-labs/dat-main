@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Download the actors.csv file
+curl -o sh-scripts/actors.csv https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors.csv
+
 # Read all the rows starting from the second row
 tail -n +2 sh-scripts/actors.csv |
 while IFS=, read -r name module_name icon actor_type status; # Reading each column
