@@ -41,8 +41,20 @@ To run dat again, navigate to the `dat` dir and run `docker compose up`.
 cd dat && docker compose up
 ```
 
-<!-- ### Update
-To update the source files to the latest revision. -->
+### Update
+To update the source files to the latest revision:
+1. Navigate to the `dat` dir and run:
+```bash
+curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/update-dat-platform.sh | bash -s
+```
+2. Execute the following docker command:
+```
+docker compose build --no-cache
+```
+3. Then restart the containers using:
+```
+docker compose down && docker compose up
+```
 
 ## Contributing 🐱‍💻
 ### Verified Connectors

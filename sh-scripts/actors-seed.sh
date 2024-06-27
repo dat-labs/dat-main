@@ -1,96 +1,35 @@
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "GoogleDrive",
-  "module_name": "google_drive",
-  "icon": "google_drive",
-  "actor_type": "source",
-  "status": "active"
-}'
+#!/bin/bash
 
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "AmazonS3",
-  "module_name": "amazon_s3",
-  "icon": "amazon_s3",
-  "actor_type": "source",
-  "status": "active"
-}'
+# Read all the rows starting from the second row
+tail -n +2 sh-scripts/actors.csv |
+while IFS=, read -r name module_name icon actor_type status; # Reading each column
+do
 
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "WebsiteCrawler",
-  "module_name": "website_crawler",
-  "icon": "website_crawler",
-  "actor_type": "source",
-  "status": "active"
-}'
-
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "OpenAI",
-  "module_name": "openai",
-  "icon": "openai",
-  "actor_type": "generator",
-  "status": "active"
-}'
-
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "Pinecone",
-  "module_name": "pinecone",
-  "icon": "pinecone",
-  "actor_type": "destination",
-  "status": "active"
-}'
-
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "Qdrant",
-  "module_name": "qdrant",
-  "icon": "qdrant",
-  "actor_type": "destination",
-  "status": "active"
-}'
-
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "Weaviate",
-  "module_name": "weaviate",
-  "icon": "weaviate",
-  "actor_type": "destination",
-  "status": "active"
-}'
-
-curl -X 'POST' \
-  'http://localhost:8000/actors' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "name": "Milvus",
-  "module_name": "milvus",
-  "icon": "milvus",
-  "actor_type": "destination",
-  "status": "active"
-}'
-
+    # Check for each row if an actor of the same name exists
+    # Creates one if it does not exist
+    if response=$(curl -X 'GET' "http://localhost:8000/actors/$actor_type/list" -H 'accept: application/json' -s)
+    then
+        found_text=$(echo "$response" | grep "$module_name") # Search for module_name in the response
+        if [ -n "$found_text" ]
+            then echo "$name already exists"
+        else
+            #Create an actor since it does not exist
+            if curl -X 'POST' 'http://localhost:8000/actors' \
+                -H 'accept: application/json' -H 'Content-Type: application/json' \
+                -d "{
+                    \"name\": \"$name\",
+                    \"module_name\": \"$module_name\",
+                    \"icon\": \"$icon\",
+                    \"actor_type\": \"$actor_type\",
+                    \"status\": \"$status\"
+                }"
+            then
+                echo "Created an instance of $name"
+            else
+                echo "Failed to create instance of $name"
+            fi
+        fi
+    else
+        echo "API not reachable"
+    fi
+done

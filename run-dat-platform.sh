@@ -85,7 +85,7 @@ mkdir sh-scripts
 curl -o sh-scripts/actors-seed.sh https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.sh
 
 # Step 7.3: Execute the downloaded file
-sh sh-scripts/actors-seed.sh
+bash sh-scripts/actors-seed.sh
 
 # Prepare for launch
 docker compose down
