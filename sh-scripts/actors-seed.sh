@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Create a directory named sh-scripts
+mkdir -p sh-scripts
+
 # Download the actors.csv file
 curl -o sh-scripts/actors.csv https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors.csv
 
