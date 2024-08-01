@@ -79,6 +79,7 @@ services:
       test: "exit 0"
   ready:
     image: busybox
+    container_name: dat-ready
     command: wget -qO - https://raw.githubusercontent.com/dat-labs/dat-main/main/txt/dat-build-complete.txt | cat
     depends_on:
       ui:

@@ -1,25 +1,5 @@
 #!/bin/bash
 
-# Default value for rebuild argument
-rebuild=false
-
-# Parse command line arguments
-for arg in "$@"; do
-    case $arg in
-        --rebuild=*)
-        rebuild="${arg#*=}"
-        shift
-        ;;
-        --rebuild)
-        rebuild=true
-        shift
-        ;;
-        *)
-        # Unknown option
-        ;;
-    esac
-done
-# echo "Rebuild value: $rebuild"
 echo "     +@@#. +#*+-                      %@-                 #%=    
      @@@@- #@@@@@#:                  .@@+                 @@*    
       --.  -#@@@@@@*                 .@@+                 @@*    
@@ -36,19 +16,6 @@ echo "     +@@#. +#*+-                      %@-                 #%=
 mkdir dat
 cd dat || exit
 
-# Step 2: Clone a list of repos from Git
-repos=(
-    "https://github.com/dat-labs/dat-api.git"
-    "https://github.com/dat-labs/dat-orchestrator.git"
-    "https://github.com/dat-labs/dat-telemetry.git"
-    "https://github.com/dat-labs/dat-scheduler.git"
-    "https://github.com/dat-labs/dat-ui.git"
-)
-
-for repo in "${repos[@]}"; do
-    git clone --depth=1 "$repo"
-done
-
 # Step 3: Create a directory named db-scripts
 mkdir db-scripts
 
@@ -58,10 +25,12 @@ curl -o db-scripts/001-create-db-seed.sql https://raw.githubusercontent.com/dat-
 # Step 5: Download a docker-compose file via curl
 curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.yml
 
-# Step 6: Run docker compose build
-if [ "$rebuild" = true ]; then
-    docker compose build
-fi
+docker pull datlabs/dat-api:latest
+docker pull datlabs/dat-orchestrator:latest
+docker pull datlabs/dat-telemetry:latest
+docker pull datlabs/dat-ready:latest
+docker pull datlabs/dat-scheduler:latest
+docker pull datlabs/dat-ui:latestt
 
 # Step 7: Seed local database with verified-actors
 docker compose up db-backend api -d
@@ -69,12 +38,14 @@ API_URL="http://localhost:8000/connections/list"
 
 while true; do
     # Use curl to check if the API is reachable
-    if curl -X 'GET' --output /dev/null -H 'accept: application/json' --silent --head --fail "$API_URL"; then
-        echo "API is reachable. Exiting the loop."
+    response=$(curl --write-out "%{http_code}" --silent --output /dev/null "$API_URL")
+
+    # Check if the response code is 200
+    if [ "$response" -eq 200 ]; then
+        echo "Success: The response code is 200."
         break
     else
-        echo "API is not reachable. Sleeping for 1 second..."
-        sleep 1
+        echo "Error: The response code is $response."
     fi
 done
 
@@ -93,3 +64,4 @@ docker compose down
 
 # Step 7: Run docker compose up
 docker compose up
+
