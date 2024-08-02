@@ -96,19 +96,6 @@ services:
     depends_on:
       api:
         condition: service_healthy
-  object-storage:
-    image: minio/minio:latest
-    volumes:
-      - ./object-storage-data:/data
-    environment:
-      MINIO_ROOT_USER: "los_user"
-      MINIO_ROOT_PASSWORD: "los_pass"
-    ports:
-      - 9000:9000
-      - 9001:9001
-    command: server --address ":9000" --console-address ":9001" /data
-    networks:
-     - dat-network
   ready:
     image: busybox
     command: wget -qO - https://raw.githubusercontent.com/dat-labs/dat-main/main/txt/dat-build-complete.txt | cat

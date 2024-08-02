@@ -94,7 +94,10 @@ API_URL="http://localhost:8000/connections/list"
 
 while true; do
     # Use curl to check if the API is reachable
-    if curl -X 'GET' --output /dev/null -H 'accept: application/json' --silent --head --fail "$API_URL"; then
+    response=$(curl --write-out "%{http_code}" --silent --output /dev/null "$API_URL")
+
+    # Check if the response code is 200
+    if [ "$response" -eq 200 ]; then
         echo "API is reachable. Exiting the loop."
         break
     else

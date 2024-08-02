@@ -42,10 +42,11 @@ while true; do
 
     # Check if the response code is 200
     if [ "$response" -eq 200 ]; then
-        echo "Success: The response code is 200."
+        echo "API is reachable. Exiting the loop."
         break
     else
-        echo "Error: The response code is $response."
+        echo "API is not reachable. Sleeping for 1 second..."
+        sleep 1
     fi
 done
 
