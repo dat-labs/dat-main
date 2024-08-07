@@ -17,11 +17,17 @@ Join us in building a powerful and flexible data integration solution for the ve
 ## Running locally 🚀
 ### First build and run
 0. Ensure that you have `docker` installed.
+- Ensure that the Docker service (Docker desktop) is running.
 1. Download and run
- ```bash
-curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash -s -- --rebuild=false
+#### Linux/ MacOS
+ ```shell
+curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platform.sh | bash
 ```
-3. Wait for the build to complete and this message to show:
+#### Windows
+```powershell
+curl -o run_dat_platform.bat https://raw.githubusercontent.com/dat-labs/dat-main/main/run_dat_platform.bat; .\run_dat_platform.bat
+```
+3. Wait for the builds to complete pulling and this message to show:
 ```text
 
      _      _     _         _ _    _                     _     _       _ 
@@ -35,27 +41,6 @@ curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/run-dat-platf
 
 > Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop dat.
 
-### Subsequent runs
-To run dat again, navigate to the `dat` dir and run `docker compose up`.
-```bash
-cd dat && docker compose up
-```
-
-### Update
-To update the source files to the latest revision:
-1. Navigate to the `dat` dir and run:
-```bash
-curl -sSL https://raw.githubusercontent.com/dat-labs/dat-main/main/update-dat-platform.sh | bash -s
-```
-2. Execute the following docker command:
-```
-docker compose build --no-cache
-```
-3. Then restart the containers using:
-```
-docker compose down && docker compose up
-```
-
 ## Contributing 🐱‍💻
 ### Verified Connectors
 0. Clone this repo.
@@ -65,7 +50,8 @@ docker compose down && docker compose up
 ./dev-dat-platform.sh --rebuild=false
 ```
 
-> Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop dat.
+> Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop `dat`.
+
 ### Integration
 Assuming that you have built an actor and you now wish to integrate it into the locally running `dat` instance, follow these steps.
 > For developing actors, please refer the detailed guide given [here](https://github.com/dat-labs/verified-generators/blob/main/DEV_GUIDE.md) for `verified-generators`.
