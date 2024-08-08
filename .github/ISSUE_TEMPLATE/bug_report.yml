@@ -1,10 +1,13 @@
 name: Bug report
-description: Use this template for reporting bugs.
+description: Report a problem.
 labels: bug
 body: 
   - type: markdown
     attributes:
-      value: Thanks for taking the time to fill out this bug report!
+      value: |
+        Thank you for bringing a potential issue to our attention! 
+        Kindly complete the following sections. 
+        If you're uncertain whether this constitutes a bug or not, we encourage you to visit our [Slack workspace](https://join.slack.com/t/dat-labs/shared_invite/zt-23wh57yhx-3kAdu022NJjabn8M25qTxA) and inquire in the `#technical-help` channel.
   - type: checkboxes
     attributes:
       label: Is there an existing issue for this?
@@ -16,31 +19,68 @@ body:
     attributes:
       label: Description
       description: Please provide a clear and concise description of the issue. What is the expected behavior, and what is the actual behavior?
+      placeholder: >
+        Share the context in which the issue occurred, and details of what happened.
     validations:
-      required: false
+      required: true
   - type: textarea
     attributes:
       label: Steps to Reproduce
       description: Please provide detailed steps to reproduce the issue.
+      placeholder: >
+        Furnish a detailed, step-by-step description of the procedure to replicate the issue you're encountering. For utmost clarity, consider including a link to a public repository containing a minimalistic reproducer, or share a code snippet that facilitates the problem reproduction.
     validations:
-      required: false
+      required: true
   - type: textarea
     attributes:
       label: Screenshots
       description: Add screenshots to help explain your problem.
     validations:
       required: false
-  - type: textarea
+  - type: dropdown
     attributes:
-      label: Environment
-      description: |
-        Please provide the following details:
-        - Operating System:
-        - Browser (if applicable):
-        - Python version (if applicable):
-        - Other relevant software versions:
+      label: Operating system
+      description: What operating system are you using?
+      multiple: false
+      options:
+        - "Linux"
+        - "macOS"
+        - "Windows"
+        - "Other"
     validations:
-      required: false
+      required: true
+  - type: dropdown
+    attributes:
+      label: Runtime environment
+      description: >
+        What kind of deployment do you have? If you use a Managed Service, consider first using regular channels of reporting issues for the service.
+      multiple: false
+      options:
+        - "Local"
+        - "Virtual Machine"
+        - "Docker, Docker Compose"
+        - "Kubernetes"
+        - "Airflow"
+        - "Astronomer"
+        - "Google Cloud Composer"
+        - "Google Colab"
+        - "GitHub Codespaces"
+        - "Other"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Python version
+      description: What Python version are you using?
+      multiple: false
+      options:
+        - "3.12"
+        - "3.11"
+        - "3.10"
+        - "3.9"
+        - "3.8"
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Additional Context

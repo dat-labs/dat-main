@@ -1,1 +1,5 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Ask a question or get support on dat-core Slack
+    url: https://join.slack.com/t/dat-labs/shared_invite/zt-23wh57yhx-3kAdu022NJjabn8M25qTxA
+    about: Need help or support? Join our dat-core community on Slack and get assistance.
