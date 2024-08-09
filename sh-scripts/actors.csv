@@ -8,3 +8,4 @@ Pinecone,pinecone,pinecone.svg,destination,active
 Qdrant,qdrant,qdrant.svg,destination,active
 Weaviate,weaviate,weaviate.svg,destination,active
 Milvus,milvus,milvus.svg,destination,active
+Postgres,postgres,postgres.svg,source,active
