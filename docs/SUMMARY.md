@@ -29,7 +29,8 @@
 ## INTEGRATIONS
 
 * [Sources](integrations/sources/README.md)
-  * [Google Drive](integrations/sources/google-drive.md)
+  * [Google Drive](integrations/sources/google-drive/README.md)
+    * [Stream Configuration](integrations/sources/google-drive/stream-configuration.md)
 * [Generators](integrations/generators/README.md)
   * [OpenAI](integrations/generators/openai.md)
 * [Destinations](integrations/destinations/README.md)
