@@ -31,6 +31,8 @@
 * [Sources](integrations/sources/README.md)
   * [Google Drive](integrations/sources/google-drive/README.md)
     * [Stream Configuration](integrations/sources/google-drive/stream-configuration.md)
+  * [WebsiteCrawlerSitemap](integrations/sources/website-crawler-sitemap/README.md)
+    * [Stream Configuration](integrations/sources/website-crawler-sitemap/stream-configuration.md)
 * [Generators](integrations/generators/README.md)
   * [OpenAI](integrations/generators/openai.md)
 * [Destinations](integrations/destinations/README.md)
