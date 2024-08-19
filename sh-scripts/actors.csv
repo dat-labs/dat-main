@@ -10,4 +10,4 @@ Qdrant,qdrant,qdrant.svg,destination,active
 Weaviate,weaviate,weaviate.svg,destination,active
 Milvus,milvus,milvus.svg,destination,active
 Postgres,postgres,postgres.svg,source,active
-AWSRedshift,aws-redshift,aws-redshift.svg,source,active
+AWSRedshift,aws_redshift,aws-redshift.svg,source,active
