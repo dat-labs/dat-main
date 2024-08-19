@@ -92,6 +92,7 @@ services:
     container_name: dat-dev-ui
     build:
       context: "./dat-ui"
+      dockerfile: "Dockerfile.dev"
     volumes:
       - ./dat-ui:/app
       - /app/node_modules
