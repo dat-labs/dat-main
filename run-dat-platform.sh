@@ -28,9 +28,8 @@ curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.
 docker pull datlabs/dat-api:latest
 docker pull datlabs/dat-orchestrator:latest
 docker pull datlabs/dat-telemetry:latest
-docker pull datlabs/dat-ready:latest
 docker pull datlabs/dat-scheduler:latest
-docker pull datlabs/dat-ui:latestt
+docker pull datlabs/dat-ui:latest
 
 # Step 7: Seed local database with verified-actors
 docker compose up db-backend api -d
