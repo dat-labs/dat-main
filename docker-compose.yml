@@ -5,8 +5,6 @@ services:
     volumes:
       - ./db-data:/var/lib/postgresql/data
       - ./db-scripts:/docker-entrypoint-initdb.d
-    ports:
-      - 5432:5432
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
@@ -23,8 +21,6 @@ services:
       RABBITMQ_DEFAULT_PASS: mq_pass
     volumes:
       - ./rabbitmq-data:/var/lib/rabbitmq
-    ports:
-      - 5672:5672
     networks:
       - dat-network
     healthcheck:
