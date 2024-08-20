@@ -52,13 +52,11 @@ REM Step 7.1: Create a directory named sh-scripts
 mkdir sh-scripts
 
 REM Step 7.2: Download a sh file via curl and save it in sh-scripts directory
-curl -o sh-scripts/actors-seed.sh https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.sh
+curl -o sh-scripts/actors-seed.bat https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors-seed.bat
 curl -o sh-scripts/actors.csv https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors.csv
 
 REM Step 7.3: Execute the downloaded file
-REM Windows doesn't support direct execution of bash scripts natively, you might need a compatible environment like Git Bash or WSL
-REM Uncomment the following line if you are using WSL or Git Bash:
-REM bash sh-scripts/actors-seed.sh
+.\sh-scripts/actors-seed.bat
 
 REM Prepare for launch
 docker compose down
