@@ -28,7 +28,6 @@ REM Pull docker images
 docker pull datlabs/dat-api:latest
 docker pull datlabs/dat-orchestrator:latest
 docker pull datlabs/dat-telemetry:latest
-docker pull datlabs/dat-ready:latest
 docker pull datlabs/dat-scheduler:latest
 docker pull datlabs/dat-ui:latest
 
