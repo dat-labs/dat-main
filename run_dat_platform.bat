@@ -24,6 +24,9 @@ curl -o db-scripts/001-create-db-seed.sql https://raw.githubusercontent.com/dat-
 REM Step 5: Download a docker-compose file via curl
 curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.yml
 
+REM docker compose down just to be safe
+docker compose down
+
 REM Pull docker images
 docker pull datlabs/dat-api:latest
 docker pull datlabs/dat-orchestrator:latest
@@ -56,7 +59,7 @@ curl -o sh-scripts/actors-seed.bat https://raw.githubusercontent.com/dat-labs/da
 curl -o sh-scripts/actors.csv https://raw.githubusercontent.com/dat-labs/dat-main/main/sh-scripts/actors.csv
 
 REM Step 7.3: Execute the downloaded file
-.\sh-scripts/actors-seed.bat
+call .\sh-scripts/actors-seed.bat
 
 REM Prepare for launch
 docker compose down
