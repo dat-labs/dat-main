@@ -45,8 +45,8 @@ if %ERRORLEVEL% == 0 (
     echo API is reachable. Exiting the loop.
     goto :CONTINUE
 ) else (
-    echo API is not reachable. Sleeping for 1 second...
-    timeout /t 1
+    echo API is not reachable. Sleeping for 10 second...
+    timeout /t 10
     goto :CHECK_API
 )
 
