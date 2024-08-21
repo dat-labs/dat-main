@@ -104,8 +104,8 @@ while true; do
         echo "API is reachable. Exiting the loop."
         break
     else
-        echo "API is not reachable. Sleeping for 1 second..."
-        sleep 1
+        echo "API is not reachable. Sleeping for 10 seconds..."
+        sleep 10
     fi
 done
 
