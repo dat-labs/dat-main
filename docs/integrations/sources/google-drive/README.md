@@ -1,11 +1,10 @@
 ---
 title: Google Drive
-source_type: File
+sourceType: File
 description: This source connects to Google Drive
 certification_status: certified
-tags: ["verified"]
+tags: [verified]
 ---
-
 # Google Drive
 
 ## Overview
