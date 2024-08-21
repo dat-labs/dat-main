@@ -84,6 +84,9 @@ cp ../db-scripts/001-create-db-seed.sql db-scripts/
 
 cp ../docker-compose-dev.yml docker-compose.yml
 
+# docker compose down just to be safe
+docker compose down
+
 # Step 6: Run docker compose build
 if [ "$rebuild" = true ]; then
     docker compose build
