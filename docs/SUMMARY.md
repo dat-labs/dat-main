@@ -11,6 +11,9 @@
   * [Source](overview/core-concepts/source.md)
   * [Generator](overview/core-concepts/generator.md)
   * [Destination](overview/core-concepts/destination.md)
+  * [Structured and Unstructured data](overview/core-concepts/structured-and-unstructured-data.md)
+  * [Vector databases](overview/core-concepts/vector-databases.md)
+  * [Embeddings](overview/core-concepts/embeddings.md)
 * [Security](overview/security.md)
 * [dat support](overview/dat-support.md)
 
