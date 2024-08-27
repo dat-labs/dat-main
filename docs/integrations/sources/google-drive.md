@@ -1,10 +1,12 @@
 ---
 title: Google Drive
 source_type: File
-description: This source connects to Google Drive
 certification_status: certified
-tags: [verified]
+tags:
+  - verified
+description: This source connects to Google Drive
 ---
+
 # Google Drive
 
 ## Overview
@@ -13,13 +15,10 @@ The Google Drive source connector allows you to extract files and data from Goog
 
 ## Configuration Options
 
-**Name**: This field represents the name you want to assign to the actor instance responsible for managing the Google Drive source. Choose a descriptive and unique name to easily identify this instance within your data activation tool (dat).
-
-**Client ID**: Enter the Client ID associated with your Google Cloud project. This ID is part of the OAuth 2.0 credentials used to authenticate your application with Google Drive API. You can obtain this from the Google Cloud Console under the "Credentials" section.
-
-**Client Secret**: Provide the Client Secret that corresponds to your Client ID. This is the other half of your OAuth 2.0 credentials and should be kept secure. Never share this secret publicly or include it in version control systems.
-
-**Refresh Token**: Enter the Refresh Token for your Google Drive integration. This long-lived token allows your application to obtain new access tokens without requiring user intervention. You'll need to go through the OAuth 2.0 flow once to obtain this refresh token.
+* **Name**: This field represents the name you want to assign to the actor instance responsible for managing the Google Drive source. Choose a descriptive and unique name to easily identify this instance within your data activation tool (dat).
+* **Client ID**: Enter the Client ID associated with your Google Cloud project. This ID is part of the OAuth 2.0 credentials used to authenticate your application with Google Drive API. You can obtain this from the Google Cloud Console under the "Credentials" section.
+* **Client Secret**: Provide the Client Secret that corresponds to your Client ID. This is the other half of your OAuth 2.0 credentials and should be kept secure. Never share this secret publicly or include it in version control systems.
+* **Refresh Token**: Enter the Refresh Token for your Google Drive integration. This long-lived token allows your application to obtain new access tokens without requiring user intervention. You'll need to go through the OAuth 2.0 flow once to obtain this refresh token.
 
 ## Additional Information
 
