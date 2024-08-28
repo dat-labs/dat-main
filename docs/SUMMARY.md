@@ -37,6 +37,7 @@
   * [Website Crawler](integrations/sources/website-crawler.md)
   * [AWS Redshift](integrations/sources/aws-redshift.md)
   * [Postgres](integrations/sources/postgres.md)
+  * [Amazon S3](integrations/sources/amazon-s3.md)
 * [Generators](integrations/generators/README.md)
   * [OpenAI](integrations/generators/openai.md)
 * [Destinations](integrations/destinations/README.md)
