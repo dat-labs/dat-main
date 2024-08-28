@@ -1,6 +1,3 @@
----
-description: This source connects to AWS Redshift
----
 
 # AWS Redshift
 
@@ -23,5 +20,3 @@ You will need the following:
 * **User:** Specify the AWS Redshift user who has permissions to read data from your AWS Redshift.
 * **Password:** Provide the password for the user entered above.
 * **Schemas:** Provide the database schemas from where you wish to extract data.
-
-\
