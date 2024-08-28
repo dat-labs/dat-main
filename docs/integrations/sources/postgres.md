@@ -1,7 +1,3 @@
----
-description: This source connects to Postgres
----
-
 # Postgres
 
 ## Overview
@@ -23,5 +19,3 @@ You will need the following:
 * **User:** Specify the Postgres user who has permissions to read data from your database, and the schema you intend to use.
 * **Password:** Provide the password for the user entered above.
 * **Schemas:** Provide the database schemas from where you wish to extract data.
-
-\
