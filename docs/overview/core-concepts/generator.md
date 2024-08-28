@@ -9,6 +9,6 @@ High-dimensional vectors are created by converting data points into numerical fo
 3. **Model Training**: The generator uses a machine learning model, such as a neural network, to learn the relationships and patterns in the data.
 4. **Vector Representation**: After training, the model can transform new data points into vector embeddings.
 
-Some examples are Word2Vec, GloVe, BERT,  FastText etc.
+Some examples are Cohere, OpenAI etc.
 
 When selecting a generator, consider factors such as data nature, complexity, computational ability, cost, task requirements, and overfitting risk. Choosing dimensionality involves balancing the need for detailed information with computational efficiency. Higher dimensions capture more details but may increase overfitting and computational costs.

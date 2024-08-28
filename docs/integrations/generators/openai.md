@@ -2,7 +2,7 @@
 
 ## Overview
 
-The OpenAI Generator connector allows you to generate embeddings or other AI-powered content using OpenAI's models. This connector integrates OpenAI's powerful language models into your data pipeline, enabling you to create vector embeddings, generate text, or perform other AI tasks as part of your data processing workflow.
+The OpenAI Generator connector allows you to generate embeddings using OpenAI's models. This connector integrates OpenAI's powerful language models into your data pipeline, enabling you to create vector embeddings as part of your data processing workflow.
 
 ## Configuration Options
 

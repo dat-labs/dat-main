@@ -7,9 +7,9 @@ Embeddings transform complex data (e.g., words, images, sounds) into a simpler n
 * **Similarity:** Words or images with similar meanings or appearances have vectors that are close together. This aids in tasks like finding synonyms or similar images. Therefore, vector embeddings for ‘dog’ and ‘cat’ will be close, while the embedding for a ‘sparrow' will be much farther away.
 * **Context:** Embeddings capture the context of words or images. For instance, the word "play" will have different embeddings in the context of chess, a stereo system, or a theatre.
 
-Thus, embeddings have useful applications for businesses such as:
+## Use Cases&#x20;
 
-## Use Cases
+Thus, embeddings have useful applications for businesses such as:
 
 1. When a customer views a dress on an online fashion retailer's site, the "You may also like" section could suggest complementary shoes, bags, and accessories.
 2. A video/music streaming platform provides personalized content recommendations for users based on their viewing/listening history, ratings, and interactions with the platform.

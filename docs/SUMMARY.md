@@ -40,6 +40,7 @@
   * [Amazon S3](integrations/sources/amazon-s3.md)
 * [Generators](integrations/generators/README.md)
   * [OpenAI](integrations/generators/openai.md)
+  * [Cohere](integrations/generators/cohere.md)
 * [Destinations](integrations/destinations/README.md)
   * [Pinecone](integrations/destinations/pinecone.md)
   * [Qdrant](integrations/destinations/qdrant.md)
