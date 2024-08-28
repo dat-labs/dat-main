@@ -35,7 +35,6 @@
   * [Google Drive](integrations/sources/google-drive.md)
   * [Website Crawler Sitemap](integrations/sources/website-crawler-sitemap.md)
   * [Website Crawler](integrations/sources/website-crawler.md)
-  * [AWS S3](integrations/sources/aws-s3.md)
   * [AWS Redshift](integrations/sources/aws-redshift.md)
   * [Postgres](integrations/sources/postgres.md)
 * [Generators](integrations/generators/README.md)
