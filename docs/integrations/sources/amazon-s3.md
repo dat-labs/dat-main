@@ -1,8 +1,4 @@
----
-description: This source connects to AWS S3
----
-
-# AWS S3
+# Amazon S3
 
 ## Overview
 
