@@ -12,7 +12,7 @@ This connector streamlines the process of creating a Pinecone index and loading 
 
 **Pinecone Index**: Enter the name of the Pinecone index you want to use for storing your vector embeddings. Please note that the specified index should already exist and have the correct dimensions set to match your embedding vectors. If the index doesn't exist or has mismatched dimensions, the connector will not be able to load the data.
 
-**Pinecone Environment**: Specify the Pinecone environment you want to use for this index. Pinecone offers different environments (e.g., cloud regions) to choose from based on your location and performance requirements.
+**Pinecone Environment**: Specify the Pinecone environment you want to use for this index. Pinecone offers different environments (e.g., cloud regions) to choose from based on your location and performance requirements. To know more about the  cloud environment where you want the index to be hosted environment click [here](https://docs.pinecone.io/guides/indexes/understanding-indexes#pod-environments).
 
 **Pinecone API Key**: Provide a valid Pinecone API key that has permissions to access and manage the specified environment and index. You can generate or retrieve an API key from your Pinecone account dashboard.
 
