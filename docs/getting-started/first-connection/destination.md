@@ -11,7 +11,7 @@
 
 4. Fill in the configuration fields as per your requirements. For detailed instructions about each field you can view the detailed documentation of the particular generator.
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 5. Once completed, click on ‘Test and Submit’
 6. After successful creation of the destination, you will be redirected to the list of destinations where you can view your newly added destination.

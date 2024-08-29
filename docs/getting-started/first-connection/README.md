@@ -41,11 +41,11 @@
 
 (b) Select a schedule for running the connection. This can vary between manual run or you can use a predefined schedule for an automatic run.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 (c) Once you have added the name and schedule, click on refresh streams button to view all added streams. Use the toogle to select the desired stream and click on the edit icon to add the configuration of the stream. Fill in the fields and click on Save.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 7. Click on the Submit button to complete the process of adding the connection. Once finished, you will be rediredted to this screen.
 
