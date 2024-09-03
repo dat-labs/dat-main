@@ -1,7 +1,6 @@
 name,module_name,icon,actor_type,status
 GoogleDrive,google_drive,google-drive.svg,source,active
 AmazonS3,amazon_s3,amazon-s3.svg,source,active
-WebsiteCrawler,website_crawler,website-crawler.svg,source,active
 WebsiteCrawlerSitemap,website_crawler_sitemap,website-crawler-sitemap.svg,source,active
 OpenAI,openai,openai.svg,generator,active
 Cohere,cohere,cohere.svg,generator,active
