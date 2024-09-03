@@ -97,7 +97,7 @@ API_URL="http://localhost:8000/connections/list"
 
 while true; do
     # Use curl to check if the API is reachable
-    response=$(curl --write-out "%{http_code}" --silent --output /dev/null "$API_URL")
+    response=$(curl --write-out "%{http_code}" --silent --output /dev/null "$API_URL?workspace_id=wkspc-uuid")
 
     # Check if the response code is 200
     if [ "$response" -eq 200 ]; then

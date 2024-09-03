@@ -25,6 +25,9 @@ curl -o db-scripts/001-create-db-seed.sql https://raw.githubusercontent.com/dat-
 # Step 5: Download a docker-compose file via curl
 curl -O https://raw.githubusercontent.com/dat-labs/dat-main/main/docker-compose.yml
 
+# Step 5: docker compose down just to be safe
+docker compose down
+
 docker pull datlabs/dat-api:latest
 docker pull datlabs/dat-orchestrator:latest
 docker pull datlabs/dat-telemetry:latest
@@ -37,7 +40,7 @@ API_URL="http://localhost:8000/connections/list"
 
 while true; do
     # Use curl to check if the API is reachable
-    response=$(curl --write-out "%{http_code}" --silent --output /dev/null "$API_URL")
+    response=$(curl --write-out "%{http_code}" --silent --output /dev/null "$API_URL?workspace_id=wkspc-uuid")
 
     # Check if the response code is 200
     if [ "$response" -eq 200 ]; then
