@@ -40,7 +40,7 @@ set API_URL=http://localhost:8000/connections/list
 
 :CHECK_API
 REM Use curl to check if the API is reachable
-curl --write-out "%%{http_code}" --silent --output NUL %API_URL?workspace_id=wkspc-uuid% | findstr /c:"200" > NUL
+curl --write-out "%%{http_code}" --silent --output NUL "%API_URL%?workspace_id=wkspc-uuid" | findstr /c:"200" > NUL
 if %ERRORLEVEL% == 0 (
     echo API is reachable. Exiting the loop.
     goto :CONTINUE
