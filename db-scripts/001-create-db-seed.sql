@@ -114,7 +114,9 @@ ALTER TYPE public.connection_run_logs_message_type_enum OWNER TO root;
 
 CREATE TYPE public.connection_status_enum AS ENUM (
     'active',
-    'inactive'
+    'inactive',
+    'deleted'
+
 );
 
 
