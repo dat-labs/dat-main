@@ -32,11 +32,13 @@
 ## INTEGRATIONS
 
 * [Sources](integrations/sources/README.md)
-  * [Google Drive](integrations/sources/google-drive.md)
+  * [Google Drive](integrations/sources/google-drive/README.md)
+    * [stream-configuration](integrations/sources/google-drive/stream-configuration.md)
   * [Website Crawler Sitemap](integrations/sources/website-crawler-sitemap.md)
   * [Website Crawler](integrations/sources/website-crawler.md)
   * [AWS Redshift](integrations/sources/aws-redshift.md)
-  * [Postgres](integrations/sources/postgres.md)
+  * [Postgres](integrations/sources/postgres/README.md)
+    * [stream-configuration](integrations/sources/postgres/stream-configuration.md)
   * [Amazon S3](integrations/sources/amazon-s3.md)
 * [Generators](integrations/generators/README.md)
   * [OpenAI](integrations/generators/openai.md)
