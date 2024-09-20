@@ -14,6 +14,7 @@
   * [Structured and Unstructured data](overview/core-concepts/structured-and-unstructured-data.md)
   * [Vector databases](overview/core-concepts/vector-databases.md)
   * [Embeddings](overview/core-concepts/embeddings.md)
+  * [Stream](overview/core-concepts/stream.md)
 * [Security](overview/security.md)
 * [dat support](overview/dat-support.md)
 
