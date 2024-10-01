@@ -334,7 +334,7 @@ CREATE TABLE public.actors (
     id character varying(36) DEFAULT public.uuid_generate_v4() NOT NULL,
     name character varying(255) NOT NULL,
     icon character varying(255),
-    actor_type public.actor_type_enum,
+    actor_type public.actor_type_enum NOT NULL,
     status public.actor_status_enum DEFAULT 'active'::public.actor_status_enum NOT NULL,
     created_at timestamp without time zone DEFAULT now(),
     updated_at timestamp without time zone DEFAULT now(),
@@ -379,7 +379,7 @@ ALTER TABLE public.connection_run_logs OWNER TO root;
 
 CREATE TABLE public.connections (
     id character varying(36) DEFAULT public.uuid_generate_v4() NOT NULL,
-    name character varying(255),
+    name character varying(255) NOT NULL,
     source_instance_id character varying(36) NOT NULL,
     generator_instance_id character varying(36) NOT NULL,
     destination_instance_id character varying(36) NOT NULL,
@@ -449,7 +449,7 @@ ALTER TABLE public.workspace_users OWNER TO root;
 
 CREATE TABLE public.workspaces (
     id character varying(36) DEFAULT public.uuid_generate_v4() NOT NULL,
-    organization_id character varying(36),
+    organization_id character varying(36) NOT NULL,
     name character varying(50) NOT NULL,
     status public.workspaces_status_enum DEFAULT 'active'::public.workspaces_status_enum NOT NULL,
     created_at timestamp without time zone DEFAULT now(),
