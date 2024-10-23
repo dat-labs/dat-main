@@ -39,7 +39,6 @@ services:
      - dat-network
   orchestrator:
     container_name: dat-dev-orchestrator
-    # platform: linux/amd64
     build:
       context: "./dat-orchestrator"
     volumes:
