@@ -110,6 +110,7 @@ services:
       api:
         condition: service_healthy
   object-storage:
+    container_name: dat-dev-object-storage
     image: minio/minio:latest
     volumes:
       - ./object-storage-data:/data
