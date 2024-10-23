@@ -109,6 +109,8 @@ services:
     depends_on:
       api:
         condition: service_healthy
+      object-storage:
+        condition: service_healthy
   object-storage:
     container_name: dat-dev-object-storage
     image: minio/minio:latest
@@ -123,6 +125,8 @@ services:
     command: server --address ":9000" --console-address ":9001" /data
     networks:
      - dat-network
+    healthcheck:
+      test: "exit 0"
   ready:
     container_name: dat-dev-ready
     image: busybox

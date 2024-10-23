@@ -72,6 +72,8 @@ services:
     depends_on:
       api:
         condition: service_healthy
+      object-storage:
+        condition: service_healthy
     ports:
       - 3000:3000
     networks:
@@ -92,6 +94,8 @@ services:
     command: server --address ":9000" --console-address ":9001" /data
     networks:
      - dat-network
+    healthcheck:
+      test: "exit 0"
   ready:
     image: busybox
     container_name: dat-ready
