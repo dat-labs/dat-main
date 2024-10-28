@@ -48,6 +48,11 @@ services:
     depends_on:
       message-queue:
         condition: service_healthy
+    environment:
+      - MINIO_BUCKET_NAME=dat
+      - MINIO_ENDPOINT=object-storage:9000
+      - MINIO_ROOT_USER=los_user
+      - MINIO_ROOT_PASSWORD=los_pass
     networks:
      - dat-network
   telemetry:
